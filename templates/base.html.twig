@@ -17,10 +17,10 @@
 		{% block navbar %}
 			<header>
 				<a href="{{ path('home') }}"><img src=" {{ asset('images/Logo.jpg') }} " alt="logo CAC" id="logo"></a>
-				<nav>
+				<nav id="nav-header">
 					<ul class="nav-links">
 						<li>
-							<a href="">Mes services</a>
+							<a href="">Nos services</a>
 						</li>
 						<li>
 							<a href="">CAC</a>
@@ -42,9 +42,48 @@
 			</header>
 		{% endblock %}
 		<main>
+			{% block banniere %}
+				<section id="banniere-section">
+					<img src=" {{ asset('images/banniere.jpg') }} " alt="banniere" id="banniere">
+				</section>
+			{% endblock %}
 			{% block body %}{% endblock %}
-			{% block javascripts %}
-			</main>
+		</main>
+		<footer>
+			<section class="footer">
+				<p>CAC Competences Actives Consulting</p>
+				<p>1 rue example</p>
+				<p>Guadeloupe</p>
+				<p>0101010101</p>
+				<p>compact-cac@gmail.com</p>
+			</section>
+			<section class="footer">
+				<p>Mentions légales</p>
+			</section>
+			<section class="footer">
+				<nav id="nav-footer">
+					<ul class="nav-links-footer">
+						<li>
+							<a href="">Nos services</a>
+						</li>
+						<li>
+							<a href="">CAC</a>
+						</li>
+						<li>
+							<a href="">Services Annexes</a>
+						</li>
+						<li>
+							<a href="">Nous contacter</a>
+						</li>
+						<li>
+							<a href="">Blog</a>
+						</li>
+					</ul>
+				</nav>
+			</section>
+		</footer>
+		{% block javascripts %}
+
 			<script src=" {{ asset('assets/js/script.js') }} "></script>
 		{% endblock %}
 	</body>
