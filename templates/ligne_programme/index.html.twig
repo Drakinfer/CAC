@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LigneProgramme index{% endblock %}
+
+{% block body %}
+    <h1>LigneProgramme index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Message</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for ligne_programme in ligne_programmes %}
+            <tr>
+                <td>{{ ligne_programme.id }}</td>
+                <td>{{ ligne_programme.message }}</td>
+                <td>
+                    <a href="{{ path('ligne_programme_show', {'id': ligne_programme.id}) }}">show</a>
+                    <a href="{{ path('ligne_programme_edit', {'id': ligne_programme.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('ligne_programme_new') }}">Create new</a>
+{% endblock %}
