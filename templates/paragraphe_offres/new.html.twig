@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New ParagrapheOffres{% endblock %}
+
+{% block body %}
+    <h1>Create new ParagrapheOffres</h1>
+
+    {{ include('paragraphe_offres/_form.html.twig') }}
+
+    <a href="{{ path('paragraphe_offres_index') }}">back to list</a>
+{% endblock %}
