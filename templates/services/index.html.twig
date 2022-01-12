@@ -1,9 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Services index{% endblock %}
+{% block title %}Services{% endblock %}
 
+{% block stylesheets %}
+			<link rel="stylesheet" href=" {{ asset('assets/css/style.css') }} ">
+			<link rel="stylesheet" href=" {{ asset('assets/css/Services.css') }} ">
+		{% endblock %}
 {% block body %}
-    <h1>Services index</h1>
+    <h1>Bienvenue administrateur dans la partie service</h1>
 
     <table class="table">
         <thead>
@@ -21,17 +25,17 @@
                 <td>{{ service.name }}</td>
                 <td>{{ service.position }}</td>
                 <td>
-                    <a href="{{ path('services_show', {'id': service.id}) }}">show</a>
-                    <a href="{{ path('services_edit', {'id': service.id}) }}">edit</a>
+                    <a href="{{ path('services_show', {'id': service.id}) }}" id="icone">Voir</a>
+                    <a href="{{ path('services_edit', {'id': service.id}) }}"id="icone">Modifier</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">no records found</td>
+                <td colspan="4">Aucun service trouvé</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('services_new') }}">Create new</a>
+    <a href="{{ path('services_new') }}"id="icone">Ajouter un nouveau service</a>
 {% endblock %}

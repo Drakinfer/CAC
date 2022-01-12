@@ -2,6 +2,11 @@
 
 {% block title %}Services{% endblock %}
 
+{% block stylesheets %}
+			<link rel="stylesheet" href=" {{ asset('assets/css/style.css') }} ">
+			<link rel="stylesheet" href=" {{ asset('assets/css/Services.css') }} ">
+		{% endblock %}
+
 {% block body %}
     <h1>Services</h1>
 
@@ -22,9 +27,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('services_index') }}">back to list</a>
+    <a href="{{ path('services_index') }}" id="icone">Retour à la liste</a>
 
-    <a href="{{ path('services_edit', {'id': service.id}) }}">edit</a>
+    <a href="{{ path('services_edit', {'id': service.id}) }}" id="icone">Modifier</a>
 
     {{ include('services/_delete_form.html.twig') }}
 {% endblock %}

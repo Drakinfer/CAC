@@ -1,13 +1,18 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Services{% endblock %}
+{% block stylesheets %}
+			<link rel="stylesheet" href=" {{ asset('assets/css/style.css') }} ">
+			<link rel="stylesheet" href=" {{ asset('assets/css/Services.css') }} ">
+		{% endblock %}
+
+{% block title %}Modifier Services{% endblock %}
 
 {% block body %}
-    <h1>Edit Services</h1>
+    <h1>Modifier Services</h1>
 
     {{ include('services/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('services_index') }}">back to list</a>
+    <a href="{{ path('services_index') }}" id="icone">Retour à la liste</a>
 
     {{ include('services/_delete_form.html.twig') }}
 {% endblock %}
