@@ -1,0 +1,100 @@
+#services,
+#contact{
+    border-right: solid 1px black;
+    animation-name: arriver-gauche;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    -moz-animation-name: arriver-gauche;
+}
+
+#entreprise,
+#prestataires{
+    border-left: solid 1px black;
+    animation-name: arriver-droite;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+}
+
+#services,
+#contact,
+#entreprise,
+#prestataires{
+    border-top: solid 1px black;
+    border-bottom: solid 1px black;
+    height: 100px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    display: flex;
+}
+
+.titre{
+    min-width: 200px;
+    text-align: center;
+    align-content: center;
+    height: 100px;
+    line-height: 100px
+}
+
+.button{
+    background-color: var(--blue);
+    border-radius: 10px;
+    border: 4px double #cccccc;
+    color: #eeeeee;
+    text-align: center;
+    padding: 2px;
+    width: 150px;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.button:hover{
+    background-color: #5c2e86;
+}
+
+.texte{
+    position: relative;
+}
+
+.right{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    float: right;
+}
+
+.left{
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    float: left;
+}
+
+.texte p{
+    padding: 5px;
+}
+
+@keyframes arriver-gauche{
+    0% {
+        Opacity: 0;
+        transform: translateX(-100%);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0%)
+    }
+}
+
+@keyframes arriver-droite{
+    0% {
+        Opacity: 0;
+        transform: translateX(100%);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0%)
+    }
+}
