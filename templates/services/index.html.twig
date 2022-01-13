@@ -12,9 +12,8 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Name</th>
                 <th>Position</th>
+                <th>Nom du service</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -25,8 +24,8 @@
                 <td>{{ service.name }}</td>
                 <td>{{ service.position }}</td>
                 <td>
-                    <a href="{{ path('services_show', {'id': service.id}) }}" id="icone">Voir</a>
-                    <a href="{{ path('services_edit', {'id': service.id}) }}"id="icone">Modifier</a>
+                    <a href="{{ path('services_show', {'id': service.id}) }}" class="button">Voir</a>
+                    <a href="{{ path('services_edit', {'id': service.id}) }}"id="button">Modifier</a>
                 </td>
             </tr>
         {% else %}
@@ -37,5 +36,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('services_new') }}"id="icone">Ajouter un nouveau service</a>
+    <a href="{{ path('services_new') }}"id="button">Ajouter un nouveau service</a>
 {% endblock %}
