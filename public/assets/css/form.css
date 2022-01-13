@@ -1,0 +1,9 @@
+.centre h2{
+    text-align: center;
+}
+
+.centre form{
+    width: 50%;
+    margin-right: auto;
+    margin-left: auto;
+}

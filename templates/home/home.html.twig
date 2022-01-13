@@ -5,52 +5,63 @@
 
 {% block body %}
 	<section id="services">
-		<article class="texte">
-			<p>
+		<article class="container">
+			<article>
+				<a href="{{ path('services_index') }}" class="button left">En savoir +</a>
+			</article>
+
+			<p class="texte-left">
 				Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero ex nostrum exercitationem inventore itaque? Excepturi placeat mollitia quidem, eveniet et distinctio expedita, similique accusamus, voluptatem modi assumenda soluta ad repellat!
 			</p>
-			<a href="{{ path('services_index') }}" class="button left">En savoir +</a>
-		</article>
-		<article class="titre">
-			<h2>Nos services</h2>
+			<article class="container-height">
+				<h2 class="titre">Nos services</h2>
+			</article>
 		</article>
 	</section>
 	<section id="entreprise">
-		<article class="titre">
-			<h2>Qui sommes-nous?</h2>
-		</article>
-		<article class="texte">
-			<p>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero ex nostrum exercitationem inventore itaque? Excepturi placeat mollitia quidem, eveniet et distinctio expedita, similique accusamus, voluptatem modi assumenda soluta ad repellat!
-								Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, doloribus magni sit quis reprehenderit commodi eveniet perferendis nobis enim maxime, provident nostrum explicabo ipsa tempore fugiat corporis repellendus odit velit.
-								Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, nostrum quibusdam aut vero nisi vel, aspernatur beatae optio sint nobis aliquid est! Soluta dolores delectus, quaerat eaque voluptatum ipsam ratione?
-			</p>
-			<a href="{{ path('services_index') }}" class="button right">Nous découvrir</a>
-		</article>
+		<article class="container">
+			<article class="container-height">
+				<h2 class="titre">Qui sommes-nous?</h2>
+			</article>
 
+			<p class="texte-right">
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero ex nostrum exercitationem inventore itaque? Excepturi placeat mollitia quidem, eveniet et distinctio expedita, similique accusamus, voluptatem modi assumenda soluta ad repellat!
+			</p>
+			<article class="container-button">
+				<a href="{{ path('services_index') }}" class="button right">Nous découvrir</a>
+			</article>
+
+		</article>
 	</section>
 	<section id="contact">
-		<article class="texte">
-			<p>
+		<article class="container">
+			<article class="container-button">
+				<a href="{{ path('services_index') }}" class="button left">Nous contacter</a>
+			</article>
+
+			<p class="texte-left">
 				Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero ex nostrum exercitationem inventore itaque? Excepturi placeat mollitia quidem, eveniet et distinctio expedita, similique accusamus, voluptatem modi assumenda soluta ad repellat!
 			</p>
-			<a href="{{ path('services_index') }}" class="button left">Nous contacter</a>
-		</article>
-		<article class="titre">
-			<h2>Contact</h2>
+			<article class="container-height">
+				<h2 class="titre">Contact</h2>
+			</article>
+
 		</article>
 	</section>
 	<section id="prestataires">
-		<article class="titre">
-			<h2>Prestataires annexes</h2>
-		</article>
-		<article class="texte">
-			<p>
+		<article class="container">
+			<article class="container-height">
+				<h2 class="titre">Prestataires annexes</h2>
+			</article>
+
+			<p class="texte-right">
 				Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero ex nostrum exercitationem inventore itaque? Excepturi placeat mollitia quidem, eveniet et distinctio expedita, similique accusamus, voluptatem modi assumenda soluta ad repellat!
 			</p>
-			<a href="{{ path('services_index') }}" class="button right">En savoir +</a>
-		</article>
+			<article class="container-button">
+				<a href="{{ path('services_index') }}" class="button right">En savoir +</a>
+			</article>
 
+		</article>
 	</section>
 
 {% endblock %}
