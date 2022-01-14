@@ -9,20 +9,24 @@
 
 		{{ form_start(registrationForm) }}
 		{{ form_row(registrationForm.nom, {
-            label: 'Nom : '
+            label: 'Nom : ',
+			attr: {'class' : 'registerForm'}
         }) }}
 		{{ form_row(registrationForm.prenom, {
-            label: 'Prénom : '
+            label: 'Prénom : ',
+			attr: {'class' : 'registerForm'}
         }) }}
 		{{ form_row(registrationForm.email, {
-            label: 'Email : '
+            label: 'Email : ',
+			attr: {'class' : 'registerForm'}
         }) }}
 		{{ form_row(registrationForm.plainPassword, {
-            label: 'Mot de Passe : '
+            label: 'Mot de Passe : ',
+			attr: {'class' : 'registerForm'}
         }) }}
 		{{ form_row(registrationForm.agreeTerms) }}
 
-		<button type="submit" class="button">Register</button>
+		<button type="submit" class="button">S'inscrire</button>
 		{{ form_end(registrationForm) }}
 	</section>
 

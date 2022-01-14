@@ -6,6 +6,8 @@
 
 :root{
     --blue:#21a1e0;
+    --vert: #8dd14a;
+    --violer: #5c2e86;
 }
 
 *{
@@ -39,5 +41,6 @@ main{
 }
 
 .button:hover{
-    background-color: #5c2e86;
+    background-color: var(--vert);
 }
+

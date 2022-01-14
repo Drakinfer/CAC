@@ -1,9 +1,36 @@
+.centre{
+    
+    width: 50%;
+    margin-right: auto;
+    margin-left: auto;
+    border: solid 2px var(--blue);  
+}
+
 .centre h2{
     text-align: center;
 }
 
-.centre form{
-    width: 50%;
-    margin-right: auto;
-    margin-left: auto;
+form{
+    padding-right: 5px;
+    padding-left: 5px;
+    margin-bottom: 5px;
 }
+
+.required{
+    width : 300px;
+}
+
+form>div,
+form>section{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.registerForm{
+    margin-left: 50px;
+}
+
+form>button{
+    margin-top: 5px;
+}
+
