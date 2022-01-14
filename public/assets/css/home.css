@@ -14,7 +14,7 @@
     animation-name: arriver-droite;
     animation-duration: 2s;
     animation-iteration-count: 1;
-    background: linear-gradient(to right, #5c2e86, white)
+    background: linear-gradient(to right, var(--vert), white)
 }
 
 #services,
@@ -27,6 +27,7 @@
     margin-top: 20px;
     margin-bottom: 20px;
     position: relative;
+    border-radius: 5px;
 }
 
 .titre{
@@ -49,9 +50,17 @@
 
 .container-height{
     height: 100px;
-    line-height: 100px;
+    line-height: 50px;
     text-align: center;
+    display: inline-block;
+    width: 200px;
 }
+
+.index h2 { 
+    display:inline-block;
+    vertical-align:middle;
+    line-height:normal /* et hop on rétablit le line-height */
+ }
 
 .right{
     position: absolute;
