@@ -3,6 +3,7 @@
 @import url('banniere.css');
 @import url('home.css');
 @import url('form.css');
+@import url('Services.css');
 
 :root{
     --blue:#21a1e0;
