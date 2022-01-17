@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PresentationController!
+{% endblock %}
+
+{% block navadmin %}
+	<ul class="nav-links">
+		<li>
+			<a href="{{path('entreprise_edit', {'id': entreprise[0].id})}}">Entreprise</a>
+		</li>
+		<li>
+			<a href="">Equipes</a>
+		</li>
+	</ul>
+{% endblock %}
+{% block body %}{% endblock %}

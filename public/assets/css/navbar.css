@@ -24,6 +24,7 @@ header{
     font-family: sans-serif;
     list-style: none;
     justify-content: space-between;
+    margin-bottom: 10px;
 }
 
 .nav-links li{

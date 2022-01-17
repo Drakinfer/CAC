@@ -23,7 +23,7 @@
 							<a href="{{ path('services_index') }}">Nos services</a>
 						</li>
 						<li>
-							<a href="">CAC</a>
+							<a href="{{ path('presentation') }}">CAC</a>
 						</li>
 						<li>
 							<a href="">Services Annexes</a>
@@ -38,6 +38,9 @@
 					<div class="burger">
 						<span></span>
 					</div>
+					{% if is_granted("ROLE_ADMIN") %}
+						{% block navadmin %}{% endblock %}
+					{% endif %}
 				</nav>
 			</header>
 		{% endblock %}

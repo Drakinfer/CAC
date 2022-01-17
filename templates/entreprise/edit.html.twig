@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Entreprise
+{% endblock %}
+
+{% block navadmin %}
+	<ul class="nav-links">
+		<li>
+			<a href="{{path('entreprise_edit', {'id': entreprise.id})}}">Entreprise</a>
+		</li>
+		<li>
+			<a href="">Equipes</a>
+		</li>
+	</ul>
+{% endblock %}
+
+{% block body %}
+	<h1>Edit Entreprise</h1>
+
+	{{ include('entreprise/_form.html.twig', {'button_label': 'Modifier'}) }}
+
+	<a href="{{path('presentation', {'id': entreprise.id})}}" class="button">revenir à la page de présentation</a>
+{% endblock %}
