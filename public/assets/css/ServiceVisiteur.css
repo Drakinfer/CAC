@@ -1,0 +1,23 @@
+#photo
+{
+    width: 400px;
+    text-align: center;
+    height: 350px;
+    float: right;
+}
+
+.texte
+{
+    text-align: left;
+    margin-top:100px;
+}
+
+h1
+{
+    text-align: center;
+}
+
+div
+{
+    margin-bottom: 100px;
+}
