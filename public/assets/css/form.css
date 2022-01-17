@@ -1,6 +1,6 @@
 .centre{
     
-    width: 50%;
+    width: 30%;
     margin-right: auto;
     margin-left: auto;
     border: solid 2px var(--blue);  
@@ -14,6 +14,7 @@ form{
     padding-right: 5px;
     padding-left: 5px;
     margin-bottom: 5px;
+    position: relative;
 }
 
 .required{
@@ -26,11 +27,22 @@ form>section{
     margin-bottom: 10px;
 }
 
-.registerForm{
-    margin-left: 50px;
-}
-
 form>button{
     margin-top: 5px;
+}
+
+form>div>label,
+form>section>label{
+    display: block;
+}
+
+.registerForm{
+    height: 100 px;
+}
+
+.bottom-right{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
 }
 
