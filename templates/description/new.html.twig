@@ -1,11 +1,23 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Description{% endblock %}
+{% block title %}New Description
+{% endblock %}
+
+{% block navadmin %}
+	<ul class="nav-links">
+		<li>
+			<a href="{{path('entreprise_edit', {'id': entreprise.id})}}">Entreprise</a>
+		</li>
+		<li>
+			<a href="">Equipes</a>
+		</li>
+	</ul>
+{% endblock %}
 
 {% block body %}
-    <h1>Create new Description</h1>
+	<h2>Nouvelle description</h2>
 
-    {{ include('description/_form.html.twig') }}
+	{{ include('description/_form.html.twig') }}
 
-    <a href="{{ path('description_index') }}">back to list</a>
+	<a href="{{ path('description_index') }}" class="button">Revenir à la page précédente</a>
 {% endblock %}

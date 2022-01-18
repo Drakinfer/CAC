@@ -20,4 +20,34 @@
 	{{ include('entreprise/_form.html.twig', {'button_label': 'Modifier'}) }}
 
 	<a href="{{path('presentation', {'id': entreprise.id})}}" class="button">revenir à la page de présentation</a>
+
+	<h1>Description index</h1>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Paragraph</th>
+				<th>Position</th>
+				<th>actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for description in descriptions %}
+				<tr>
+					<td>{{ description.paragraph }}</td>
+					<td>{{ description.position }}</td>
+					<td>
+						<a href="{{ path('description_show', {'id': description.id}) }}">show</a>
+						<a href="{{ path('description_edit', {'id': description.id}) }}">edit</a>
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="4">no records found</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+	<a href="{{ path('description_new') }}" class="button">Create new</a>
 {% endblock %}
