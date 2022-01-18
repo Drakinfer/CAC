@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\admin;
 
 use App\Entity\LigneProgramme;
 use App\Form\LigneProgrammeType;
