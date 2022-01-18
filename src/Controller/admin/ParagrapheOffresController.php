@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\admin;
 
 use App\Entity\ParagrapheOffres;
 use App\Form\ParagrapheOffresType;
