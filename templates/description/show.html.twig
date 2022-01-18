@@ -1,30 +1,39 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Description{% endblock %}
+{% block title %}Description
+{% endblock %}
+
+{% block navadmin %}
+	<ul class="nav-links">
+		<li>
+			<a href="{{path('entreprise_edit', {'id': entreprise.id})}}">Entreprise</a>
+		</li>
+		<li>
+			<a href="">Equipes</a>
+		</li>
+	</ul>
+{% endblock %}
 
 {% block body %}
-    <h1>Description</h1>
+	<h1>Description</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ description.id }}</td>
-            </tr>
-            <tr>
-                <th>Paragraph</th>
-                <td>{{ description.paragraph }}</td>
-            </tr>
-            <tr>
-                <th>Position</th>
-                <td>{{ description.position }}</td>
-            </tr>
-        </tbody>
-    </table>
+	<table class="table">
+		<tbody>
 
-    <a href="{{ path('description_index') }}">back to list</a>
+			<tr>
+				<th>Paragraph</th>
+				<td>{{ description.paragraph }}</td>
+			</tr>
+			<tr>
+				<th>Position</th>
+				<td>{{ description.position }}</td>
+			</tr>
+		</tbody>
+	</table>
 
-    <a href="{{ path('description_edit', {'id': description.id}) }}">edit</a>
+	<a href="{{ path('description_index') }}" class="button">Revenir à la page précédente</a>
 
-    {{ include('description/_delete_form.html.twig') }}
+	<a href="{{ path('description_edit', {'id': description.id}) }}" class="button">Modifier</a>
+
+	{{ include('description/_delete_form.html.twig') }}
 {% endblock %}

@@ -1,13 +1,25 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Description{% endblock %}
+{% block title %}Edit Description
+{% endblock %}
+
+{% block navadmin %}
+	<ul class="nav-links">
+		<li>
+			<a href="{{path('entreprise_edit', {'id': entreprise.id})}}">Entreprise</a>
+		</li>
+		<li>
+			<a href="">Equipes</a>
+		</li>
+	</ul>
+{% endblock %}
 
 {% block body %}
-    <h1>Edit Description</h1>
+	<h1>Modifier le paragraphe</h1>
 
-    {{ include('description/_form.html.twig', {'button_label': 'Update'}) }}
+	{{ include('description/_form.html.twig', {'button_label': 'Modifier'}) }}
 
-    <a href="{{ path('description_index') }}">back to list</a>
+	<a href="{{ path('entreprise_edit') }}" class="button">Retour à la page précédente</a>
 
-    {{ include('description/_delete_form.html.twig') }}
+	{{ include('description/_delete_form.html.twig') }}
 {% endblock %}
