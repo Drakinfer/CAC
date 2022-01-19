@@ -1,5 +1,4 @@
-#services,
-#contact{
+.blue-right{
     /* border-right: solid 1px black; */
     animation-name: arriver-gauche;
     animation-duration: 2s;
@@ -8,8 +7,7 @@
     background: linear-gradient(to left, var(--blue), white)
 }
 
-#entreprise,
-#prestataires{
+.green-left{
     /* border-left: solid 1px black; */
     animation-name: arriver-droite;
     animation-duration: 2s;
@@ -17,10 +15,8 @@
     background: linear-gradient(to right, var(--vert), white)
 }
 
-#services,
-#contact,
-#entreprise,
-#prestataires{
+.blue-right,
+.green-left{
     /* border-top: solid 1px black;
     border-bottom: solid 1px black; */
     min-height: 100px;

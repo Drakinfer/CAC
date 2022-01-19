@@ -22,19 +22,15 @@ class DescriptionRepository extends ServiceEntityRepository
     // /**
     //  * @return Description[] Returns an array of Description objects
     //  */
-    /*
-    public function findByExampleField($value)
+
+    public function triPosition()
     {
         return $this->createQueryBuilder('d')
-            ->andWhere('d.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('d.id', 'ASC')
-            ->setMaxResults(10)
+            ->orderBy('d.position', 'ASC')
             ->getQuery()
-            ->getResult()
-        ;
+            ->getResult();
     }
-    */
+
 
     /*
     public function findOneBySomeField($value): ?Description

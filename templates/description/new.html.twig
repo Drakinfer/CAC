@@ -6,7 +6,7 @@
 {% block navadmin %}
 	<ul class="nav-links">
 		<li>
-			<a href="{{path('entreprise_edit', {'id': entreprise.id})}}">Entreprise</a>
+			<a href="{{path('entreprise_edit', {'id': 1})}}">Entreprise</a>
 		</li>
 		<li>
 			<a href="">Equipes</a>
@@ -19,5 +19,5 @@
 
 	{{ include('description/_form.html.twig') }}
 
-	<a href="{{ path('description_index') }}" class="button">Revenir à la page précédente</a>
+	<a href="{{ path('entreprise_edit', {'id':1}) }}" class="button">Revenir à la page précédente</a>
 {% endblock %}

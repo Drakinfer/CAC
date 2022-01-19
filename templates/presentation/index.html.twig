@@ -13,4 +13,27 @@
 		</li>
 	</ul>
 {% endblock %}
-{% block body %}{% endblock %}
+{% block body %}
+	<h2>{{entreprise[0].forme}}
+		{{entreprise[0].nom}}</h2>
+	<section id='presentation-entreprise'>
+		<p>Enregistré à :</p>
+		<p>{{entreprise[0].adresse}}</p>
+		<p>{{entreprise[0].codepostal}}</p>
+		<p>{{entreprise[0].ville}}</p>
+		<p>{{entreprise[0].pays}}</p>
+		<p>Téléphone :</p>
+		<p>{{entreprise[0].telephone}}</p>
+		<p>Mail :</p>
+		<p>{{entreprise[0].mail}}</p>
+
+		{% for description in description %}
+			<p>{{description.paragraph}}</p>
+		{% endfor %}
+	</section>
+	{% if equipe is defined %}
+		{% if equipe is not empty %}
+			<section id='presentation-equipe'></section>
+		{% endif %}
+	{% endif %}
+{% endblock %}
