@@ -33,7 +33,7 @@ class DescriptionController extends AbstractController
             $entityManager->persist($description);
             $entityManager->flush();
 
-            return $this->redirectToRoute('description_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('entreprise_edit', ['id' => 1], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('description/new.html.twig', [
@@ -59,7 +59,7 @@ class DescriptionController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
 
-            return $this->redirectToRoute('description_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('entreprise_edit', ['id' => 1], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('description/edit.html.twig', [
@@ -76,6 +76,6 @@ class DescriptionController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('description_index', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('entreprise_edit', ['id' => 1], Response::HTTP_SEE_OTHER);
     }
 }
