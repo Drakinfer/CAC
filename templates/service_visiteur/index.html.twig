@@ -7,7 +7,19 @@
 			<link rel="stylesheet" href=" {{ asset('assets/css/style.css') }} ">
             <link rel="stylesheet" href=" {{ asset('assets/css/ServiceVisiteur.css') }} ">
 		{% endblock %}
-
+</head>
+	
+		{% block navbar %}
+			{% if is_granted('ROLE_ADMIN') %}
+       <nav id="nav-header">
+					<ul class="nav-links">
+						<li>
+							<a href="{{ path('services_index') }}">Services Admin</a>
+						</li>
+					</ul>
+        {% endif %}
+				</nav>
+		{% endblock %}
 
 {% block body %}
 {% for service in services %}
