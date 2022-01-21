@@ -9,7 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ServiceVisiteurController extends AbstractController
 {
-    #[Route('/service/visiteur', name: 'service_visiteur')]
+    #[Route('/service', name: 'service_visiteur')] 
     public function index(ServicesRepository $servicesRepository): Response
     {
         return $this->render('service_visiteur/index.html.twig', [

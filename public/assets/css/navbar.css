@@ -140,5 +140,4 @@ header a{
     .burger.active span::after{
         transform: translateY(0px) rotateZ(-45deg)
     }
-    
 }
