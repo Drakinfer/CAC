@@ -1,0 +1,19 @@
+#presentation-entreprise{
+    display: flex;
+    margin-top: 10px;
+}
+
+#presentation-entreprise article{
+    flex: 1;
+}
+
+.description{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#description_paragraph{
+    width: 400px;
+    
+}
+

@@ -6,6 +6,7 @@ use App\Entity\Entreprise;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 class EntrepriseType extends AbstractType
 {
@@ -24,7 +25,16 @@ class EntrepriseType extends AbstractType
             ->add('portable')
             ->add('heure_ouverture')
             ->add('heure_fermeture')
-        ;
+            ->add(
+                'image',
+                FileType::class,
+                [
+                    'label' => 'Charger une image',
+                    'data_class' => null,
+                    'required' => false,
+                    'empty_data' => ''
+                ]
+            );
     }
 
     public function configureOptions(OptionsResolver $resolver): void
