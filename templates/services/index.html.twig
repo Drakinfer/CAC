@@ -4,7 +4,14 @@
 
 {% block body %}
     <h1>Bienvenue administrateur dans la partie service</h1>
-
+    {% block navadmin %}
+				    <ul class="nav-links">
+					<li>
+					<a class="admin" href="{{ path('services_index')}}">services Admin</a>
+					</li>
+					</ul>
+					{% endblock %}
+                    
     <table id="table_service">
         <thead>
             <tr>
