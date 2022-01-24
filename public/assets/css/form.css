@@ -1,8 +1,10 @@
 .centre{
-    
-    width: 30%;
+    width: 40%;
     margin-right: auto;
     margin-left: auto;
+}
+
+.section-border{
     border: solid 2px var(--blue);  
 }
 
@@ -32,7 +34,8 @@ form>button{
 }
 
 form>div>label,
-form>section>label{
+form>section>label,
+form>div>div>label{
     display: block;
 }
 
@@ -44,5 +47,9 @@ form>section>label{
     position: absolute;
     right: 10px;
     bottom: 10px;
+}
+
+td{
+    text-align: center;
 }
 

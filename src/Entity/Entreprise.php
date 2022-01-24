@@ -54,6 +54,9 @@ class Entreprise
     #[ORM\OneToMany(mappedBy: 'entreprise', targetEntity: Description::class, orphanRemoval: true)]
     private $descriptions;
 
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $image;
+
     public function __construct()
     {
         $this->descriptions = new ArrayCollection();
@@ -241,5 +244,17 @@ class Entreprise
     public function __toString()
     {
         return $this->getNom();
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(?string $image): self
+    {
+        $this->image = $image;
+
+        return $this;
     }
 }

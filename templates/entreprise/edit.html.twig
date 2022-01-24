@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Entreprise
+{% block title %}Modifier les informations de l'entreprise - CAC
 {% endblock %}
 
 {% block navadmin %}
@@ -15,20 +15,18 @@
 {% endblock %}
 
 {% block body %}
-	<h1>Edit Entreprise</h1>
+	<h2 class="centre">Modifier les informations de l'entreprise</h2>
 
 	{{ include('entreprise/_form.html.twig', {'button_label': 'Modifier'}) }}
 
-	<a href="{{path('presentation', {'id': entreprise.id})}}" class="button">revenir à la page de présentation</a>
-
-	<h1>Description index</h1>
+	<h2 class="centre">Paragraphes de Description</h2>
 
 	<table class="table">
 		<thead>
 			<tr>
-				<th>Paragraph</th>
+				<th>Paragraphe</th>
 				<th>Position</th>
-				<th>actions</th>
+				<th>Actions</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -37,17 +35,19 @@
 					<td>{{ description.paragraph }}</td>
 					<td>{{ description.position }}</td>
 					<td>
-						<a href="{{ path('description_show', {'id': description.id}) }}">show</a>
-						<a href="{{ path('description_edit', {'id': description.id}) }}">edit</a>
+						<a href="{{ path('description_show', {'id': description.id}) }}" class="button">show</a>
+						<a href="{{ path('description_edit', {'id': description.id}) }}" class="button">edit</a>
 					</td>
 				</tr>
 			{% else %}
 				<tr>
-					<td colspan="4">no records found</td>
+					<td colspan="4">Pas d'enregistrement trouvés</td>
 				</tr>
 			{% endfor %}
 		</tbody>
 	</table>
 
 	<a href="{{ path('description_new') }}" class="button">Create new</a>
+
+	<a href="{{path('presentation', {'id': entreprise.id})}}" class="button">revenir à la page de présentation</a>
 {% endblock %}

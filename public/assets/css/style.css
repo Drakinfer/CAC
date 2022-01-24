@@ -4,6 +4,7 @@
 @import url('home.css');
 @import url('form.css');
 @import url('Services.css');
+@import url('presentation.css');
 
 :root{
     --blue:#21a1e0;
@@ -43,5 +44,13 @@ main{
 
 .button:hover{
     background-color: var(--vert);
+}
+
+h2:first-of-type{
+    margin-bottom: 20px;
+}
+
+h2{
+    margin-bottom: 5px;
 }
 
