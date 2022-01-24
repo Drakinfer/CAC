@@ -38,15 +38,10 @@
 					<div class="burger">
 						<span></span>
 					</div>
-					{% if is_granted("ROLE_ADMIN") %}
-					<ul class="nav-links">
-					<li>
-					<a class="admin" href="{{ path('services_index')}}">services Admin</a>
-					</li>
-					</ul>
-						{% block navadmin %}{% endblock %}
-					{% endif %}
 				</nav>
+					{% if is_granted("ROLE_ADMIN") %}
+			 {% block navadmin %}{% endblock %}
+			{% endif %}
 			</header>
 		{% endblock %}
 		<main>
