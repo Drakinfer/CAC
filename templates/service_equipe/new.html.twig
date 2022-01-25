@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New ServiceEquipe
+{% endblock %}
+
+{% block body %}
+	<h1>Create new ServiceEquipe</h1>
+
+	{{ include('service_equipe/_form.html.twig') }}
+
+	<a href="{{ path('equipe_index') }}">back to list</a>
+{% endblock %}

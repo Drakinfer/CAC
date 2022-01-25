@@ -42,10 +42,11 @@
 					<div class="burger">
 						<span></span>
 					</div>
+					{% if is_granted("ROLE_ADMIN") %}
+						{% block navadmin %}{% endblock %}
+					{% endif %}
 				</nav>
-				{% if is_granted("ROLE_ADMIN") %}
-					{% block navadmin %}{% endblock %}
-				{% endif %}
+
 			</header>
 		{% endblock %}
 		<main>

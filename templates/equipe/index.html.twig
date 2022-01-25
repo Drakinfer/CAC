@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Equipe index
+{% endblock %}
+
+{% block body %}
+	<h1>ServiceEquipe index</h1>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Name</th>
+				<th>actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for service_equipe in service_equipes %}
+				<tr>
+					<td>{{ service_equipe.id }}</td>
+					<td>{{ service_equipe.name }}</td>
+					<td>
+						<a href="{{ path('service_equipe_show', {'id': service_equipe.id}) }}">show</a>
+						<a href="{{ path('service_equipe_edit', {'id': service_equipe.id}) }}">edit</a>
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="3">no records found</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+	<a href="{{ path('service_equipe_new') }}">Create new</a>
+
+	<h1>Equipe index</h1>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Nom</th>
+				<th>Prenom</th>
+				<th>Poste</th>
+				<th>Description</th>
+				<th>Service</th>
+				<th>actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for equipe in equipes %}
+				<tr>
+					<td>{{ equipe.nom }}</td>
+					<td>{{ equipe.prenom }}</td>
+					<td>{{ equipe.poste }}</td>
+					<td>{{ equipe.description }}</td>
+					<td>{{ equipe.service }}</td>
+					<td>
+						<a href="{{ path('equipe_show', {'id': equipe.id}) }}">show</a>
+						<a href="{{ path('equipe_edit', {'id': equipe.id}) }}">edit</a>
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="6">Pas d'enregistrement</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+	<a href="{{ path('equipe_new') }}">Ajouter un membre</a>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit ServiceEquipe
+{% endblock %}
+
+{% block body %}
+	<h1>Edit ServiceEquipe</h1>
+
+	{{ include('service_equipe/_form.html.twig', {'button_label': 'Update'}) }}
+
+	<a href="{{ path('equipe_index') }}">back to list</a>
+
+	{{ include('service_equipe/_delete_form.html.twig') }}
+{% endblock %}
