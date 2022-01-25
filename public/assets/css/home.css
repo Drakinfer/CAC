@@ -32,9 +32,13 @@
 
 .texte-left{
     margin-left: 200px;
+    text-align: justify;
+    text-indent: 20px;
 }
 .texte-right{
     margin-right: 200px;
+    text-align: justify;
+    text-indent: 20px;
 }
 
 
@@ -44,12 +48,8 @@
     display: flex;
 }
 
-.container-height{
-    height: 100px;
-    line-height: 50px;
+.middle h2{
     text-align: center;
-    display: inline-block;
-    width: 200px;
 }
 
 .index h2 { 

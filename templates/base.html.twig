@@ -9,6 +9,9 @@
 		</title>
 		{% block stylesheets %}
 			<link rel="stylesheet" href=" {{ asset('assets/css/style.css') }} ">
+			<link rel="preconnect" href="https://fonts.googleapis.com">
+			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+			<link href="https://fonts.googleapis.com/css2?family=BenchNine:wght@300;400&display=swap" rel="stylesheet">
 		{% endblock %}
 
 
@@ -40,9 +43,9 @@
 						<span></span>
 					</div>
 				</nav>
-					{% if is_granted("ROLE_ADMIN") %}
-			 {% block navadmin %}{% endblock %}
-			{% endif %}
+				{% if is_granted("ROLE_ADMIN") %}
+					{% block navadmin %}{% endblock %}
+				{% endif %}
 			</header>
 		{% endblock %}
 		<main>

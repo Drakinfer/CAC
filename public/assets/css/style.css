@@ -15,7 +15,8 @@
 *{
     margin: 0;
     padding: 0;
-    box-sizing: border-box
+    box-sizing: border-box;
+    font-family: 'BenchNine', sans-serif;
 }
 
 main{
@@ -30,8 +31,7 @@ main{
 .button{
     background-color: var(--blue);
     border-radius: 10px;
-    border: 4px double #cccccc;
-    color: #eeeeee;
+    color: #000;
     text-align: center;
     padding: 2px;
     min-width: 150px;
@@ -40,6 +40,8 @@ main{
     -o-transition: all 0.5s;
     transition: all 0.5s;
     cursor: pointer;
+    height: 30px;
+    line-height: 30px;
 }
 
 .button:hover{
