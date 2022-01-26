@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Prestataires{% endblock %}
+
+{% block body %}
+    <h1>Edit Prestataires</h1>
+
+    {{ include('prestataires/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('prestataires_index') }}">back to list</a>
+
+    {{ include('prestataires/_delete_form.html.twig') }}
+{% endblock %}
