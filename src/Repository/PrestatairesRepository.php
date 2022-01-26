@@ -19,6 +19,14 @@ class PrestatairesRepository extends ServiceEntityRepository
         parent::__construct($registry, Prestataires::class);
     }
 
+    public function triPosition()
+    {
+        return $this->createQueryBuilder('d')
+            ->orderBy('d.position', 'ASC')
+            ->getQuery()
+            ->getResult();
+    }
+
     // /**
     //  * @return Prestataires[] Returns an array of Prestataires objects
     //  */
