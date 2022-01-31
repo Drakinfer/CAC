@@ -12,13 +12,18 @@
 		<li>
 			<a href="{{path('entreprise_edit', {'id': entreprise[0].id})}}">Entreprise</a>
 		</li>
+
 		<li>
 			<a href="{{path('equipe_index')}}">Equipes</a>
 		</li>
+		<li>
+			<a href="{{path('reseaux_index')}}">Réseaux</a>
+		</li>
 	</ul>
 {% endblock %}
+
 {% block body %}
-	<h2 class="centre">{{entreprise[0].forme}}
+	<h2 class="centre">
 		{{entreprise[0].nom}}</h2>
 	<section id='presentation-entreprise'>
 		<article>

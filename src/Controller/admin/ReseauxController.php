@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\admin;
 
 use App\Entity\Reseaux;
 use App\Form\ReseauxType;
@@ -18,7 +18,7 @@ class ReseauxController extends AbstractController
     public function index(ReseauxRepository $reseauxRepository): Response
     {
         return $this->render('reseaux/index.html.twig', [
-            'reseauxes' => $reseauxRepository->findAll(),
+            'reseaux' => $reseauxRepository->findAll(),
         ]);
     }
 
@@ -71,7 +71,7 @@ class ReseauxController extends AbstractController
     #[Route('/{id}', name: 'reseaux_delete', methods: ['POST'])]
     public function delete(Request $request, Reseaux $reseaux, EntityManagerInterface $entityManager): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$reseaux->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $reseaux->getId(), $request->request->get('_token'))) {
             $entityManager->remove($reseaux);
             $entityManager->flush();
         }
