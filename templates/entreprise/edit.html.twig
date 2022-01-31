@@ -3,6 +3,10 @@
 {% block title %}Modifier les informations de l'entreprise - CAC
 {% endblock %}
 
+{% block bootstrap %}
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+{% endblock %}
+
 {% block navadmin %}
 	<ul class="nav-links">
 		<li>
@@ -47,7 +51,7 @@
 		</tbody>
 	</table>
 
-	<a href="{{ path('description_new') }}" class="button">Create new</a>
+	<a href="{{ path('description_new') }}" class="button">Rajouter paragraphe</a>
 
-	<a href="{{path('presentation', {'id': entreprise.id})}}" class="button">revenir à la page de présentation</a>
+	<a href="{{path('presentation', {'id': entreprise.id})}}" class="button">Revenir à la page de présentation</a>
 {% endblock %}

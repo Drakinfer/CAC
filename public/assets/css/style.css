@@ -33,7 +33,7 @@ main{
     border-radius: 10px;
     color: #000;
     text-align: center;
-    padding: 2px;
+    padding: 2px 10px;
     min-width: 150px;
     -webkit-transition: all 0.5s;
     -moz-transition: all 0.5s;
@@ -42,10 +42,13 @@ main{
     cursor: pointer;
     height: 30px;
     line-height: 30px;
+    text-decoration: none;
 }
 
 .button:hover{
     background-color: var(--vert);
+    color: #000;
+    text-decoration: none;
 }
 
 h2:first-of-type{
@@ -54,5 +57,9 @@ h2:first-of-type{
 
 h2{
     margin-bottom: 5px;
+}
+
+a{
+    margin-left: 5px;
 }
 
