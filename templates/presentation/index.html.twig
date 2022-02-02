@@ -23,32 +23,17 @@
 {% endblock %}
 
 {% block body %}
-	<h2 class="centre">
-		{{entreprise[0].nom}}</h2>
+	<h2 class="centre">{{entreprise[0].nom}}</h2>
 	<section id='presentation-entreprise'>
+		<article id="img-entreprise">
+			<img src="{{asset('images/' ~ entreprise[0].image) }}" alt="">
+		</article>
 		<article>
-			<p>Enregistré à :</p>
-			<p>{{entreprise[0].adresse}}</p>
-			<p>{{entreprise[0].codepostal}}</p>
-			<p>{{entreprise[0].ville}}</p>
-			<p>{{entreprise[0].pays}}</p>
-			<p>Téléphone :</p>
-			<p>{{entreprise[0].telephone}}</p>
-			<p>Mail :</p>
-			<p>{{entreprise[0].mail}}</p>
-			{% if entreprise[0].heureOuverture is not empty %}
-				<p>Ouvert de
-					{{entreprise[0].heureOuverture}}
-					à
-					{{entreprise[0].heureFermeture}}</p>
-			{% endif %}
 			{% for description in description %}
 				<p class="description">{{description.paragraph}}</p>
 			{% endfor %}
 		</article>
-		<article>
-			<img src="{{asset('images/' ~ entreprise[0].image) }}" alt="">
-		</article>
+
 	</section>
 	{% if equipe is defined %}
 		{% if equipe is not empty %}

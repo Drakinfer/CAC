@@ -1,6 +1,7 @@
 #presentation-entreprise{
     display: flex;
     margin-top: 10px;
+    padding-left: 10px;
 }
 
 #presentation-entreprise article{
