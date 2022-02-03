@@ -23,6 +23,9 @@ class Description
     #[ORM\JoinColumn(nullable: false)]
     private $entreprise;
 
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $titre;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -60,6 +63,18 @@ class Description
     public function setEntreprise(?Entreprise $entreprise): self
     {
         $this->entreprise = $entreprise;
+
+        return $this;
+    }
+
+    public function getTitre(): ?string
+    {
+        return $this->titre;
+    }
+
+    public function setTitre(?string $titre): self
+    {
+        $this->titre = $titre;
 
         return $this;
     }

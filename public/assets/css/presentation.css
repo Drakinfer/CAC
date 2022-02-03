@@ -1,7 +1,10 @@
 #presentation-entreprise{
     display: flex;
     margin-top: 10px;
+    padding-left: 10px;
 }
+
+
 
 #presentation-entreprise article{
     flex: 1;
@@ -17,3 +20,19 @@
     
 }
 
+#bg{
+    background: linear-gradient(to right, var(--blue), white);
+}
+
+#img-entreprise{
+    width: 50%;
+    height: 300px;
+    margin: auto;
+}
+
+#img-article{
+    min-height: 500px;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+}
