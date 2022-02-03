@@ -3,46 +3,39 @@
 {% block title %}CAC - Competences Actives Consulting
 {% endblock %}
 
-{% block stylesheets %}
-			<link rel="stylesheet" href=" {{ asset('assets/css/style.css') }} ">
-            <link rel="stylesheet" href=" {{ asset('assets/css/ServiceVisiteur.css') }} ">
-		{% endblock %}
 
-				
-					
-				 {% block navadmin %}
-				    <ul class="nav-links">
-					<li>
-					<a class="admin" href="{{ path('services_index')}}">services Admin</a>
-					</li>
-					</ul>
-					{% endblock %}
-				
+{% block navadmin %}
+	<ul class="nav-links">
+		<li>
+			<a class="admin" href="{{ path('services_index')}}">services Admin</a>
+		</li>
+	</ul>
+{% endblock %}
+
 {% block body %}
-{% for service in services %}
- {{ service.name }}
-{% endfor %}
-<h1 class="titre">Nos services</h1>
+	{% for service in services %}
+		{{ service.name }}
+	{% endfor %}
+	<h1 class="titre">Nos services</h1>
 
 
-{# <section>
-		<img src=" {{ asset('images/training.jpg') }} " alt="photo" id="photo">
-	</section> #}
-<p class="texte">Lorem ipsum dolor sit amet,
-<br>consectetur adipiscing elit, sed
-<br>do eiusmod tempor incididunt ut
-<br>labore et dolore magna aliqua.
-<br>Quis ipsum suspendisse ultrices
-<br>gravida. Risus commodo viverra
-<br>maecenas accumsan lacus vel facilisis.</p>
+	{# <section>
+				<img src=" {{ asset('images/training.jpg') }} " alt="photo" id="photo">
+			</section> #}
+	<p class="texte">Lorem ipsum dolor sit amet,
+		<br>consectetur adipiscing elit, sed
+		<br>do eiusmod tempor incididunt ut
+		<br>labore et dolore magna aliqua.
+		<br>Quis ipsum suspendisse ultrices
+		<br>gravida. Risus commodo viverra
+		<br>maecenas accumsan lacus vel facilisis.</p>
 
-<div>
-<br>
-<p>• Lorem ipsum dolor sit amet, consectetur adipiscing facilisis.</p>
-<br>
-<p>• Lorem ipsum dolor sit amet, consectetur adipiscing facilisis.</p>
+	<div>
+		<br>
+		<p>• Lorem ipsum dolor sit amet, consectetur adipiscing facilisis.</p>
+		<br>
+		<p>• Lorem ipsum dolor sit amet, consectetur adipiscing facilisis.</p>
 
 
-
-</div>
+	</div>
 {% endblock %}

@@ -10,7 +10,7 @@
 {% block navadmin %}
 	<ul class="nav-links">
 		<li>
-			<a href="{{path('entreprise_edit', {'id': entreprise.id})}}">Entreprise</a>
+			<a href="{{path('entreprise_edit', {'id': 1})}}">Entreprise</a>
 		</li>
 
 		<li>
@@ -27,6 +27,10 @@
 
 	<table class="table">
 		<tbody>
+			<tr>
+				<th>Titre</th>
+				<td>{{ description.titre }}</td>
+			</tr>
 			<tr>
 				<th>Paragraphe</th>
 				<td>{{ description.paragraph }}</td>
