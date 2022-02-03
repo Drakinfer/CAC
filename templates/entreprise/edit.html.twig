@@ -32,6 +32,7 @@
 	<table class="table">
 		<thead>
 			<tr>
+				<th>Titre</th>
 				<th>Paragraphe</th>
 				<th>Position</th>
 				<th>Actions</th>
@@ -40,6 +41,7 @@
 		<tbody>
 			{% for description in descriptions %}
 				<tr>
+					<td>{{ description.titre }}</td>
 					<td>{{ description.paragraph }}</td>
 					<td>{{ description.position }}</td>
 					<td>

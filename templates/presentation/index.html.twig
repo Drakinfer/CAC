@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello PresentationController!
+{% block title %}Qui sommes-nous? - Competences Actives Consulting
 {% endblock %}
 
 {% block bootstrap %}
@@ -23,55 +23,55 @@
 {% endblock %}
 
 {% block body %}
-	<h2 class="centre">{{entreprise[0].nom}}</h2>
-	<section id='presentation-entreprise'>
-		<article id="img-entreprise">
-			<img src="{{asset('images/' ~ entreprise[0].image) }}" alt="">
-		</article>
-		<article>
-			{% for description in description %}
-				<p class="description">{{description.paragraph}}</p>
-			{% endfor %}
-		</article>
+	<section id="bg">
+		<h2 class="centre">{{entreprise[0].nom}}</h2>
+		<section id='presentation-entreprise'>
+			<article id="img-article text-center mx-auto">
+				<img id="img-entreprise" src="{{asset('images/' ~ entreprise[0].image) }}" alt="présentation de l'entreprise">
+			</article>
+			<article>
+				{% for description in description %}
+					<p class="description">{{description.paragraph}}</p>
+				{% endfor %}
+			</article>
 
-	</section>
-	{% if equipe is defined %}
-		{% if equipe is not empty %}
-			<section id='presentation-equipe'>
-				<h1>Equipe index</h1>
+		</section>
+		{% if equipe is defined %}
+			{% if equipe is not empty %}
+				<section id='presentation-equipe'>
+					<h1>Equipe index</h1>
 
-				<table class="table">
-					<thead>
-						<tr>
-							<th>Id</th>
-							<th>Nom</th>
-							<th>Prenom</th>
-							<th>Poste</th>
-							<th>Description</th>
-							<th>actions</th>
-						</tr>
-					</thead>
-					<tbody>
-						{% for equipe in equipes %}
+					<table class="table">
+						<thead>
 							<tr>
-								<td>{{ equipe.id }}</td>
-								<td>{{ equipe.nom }}</td>
-								<td>{{ equipe.prenom }}</td>
-								<td>{{ equipe.poste }}</td>
-								<td>{{ equipe.description }}</td>
-								<td>
-									<a href="{{ path('equipe_show', {'id': equipe.id}) }}">show</a>
-									<a href="{{ path('equipe_edit', {'id': equipe.id}) }}">edit</a>
-								</td>
+								<th>Nom</th>
+								<th>Prenom</th>
+								<th>Poste</th>
+								<th>Description</th>
+								<th>actions</th>
 							</tr>
-						{% else %}
-							<tr>
-								<td colspan="6">no records found</td>
-							</tr>
-						{% endfor %}
-					</tbody>
-				</table>
-			</section>
+						</thead>
+						<tbody>
+							{% for equipe in equipes %}
+								<tr>
+									<td>{{ equipe.nom }}</td>
+									<td>{{ equipe.prenom }}</td>
+									<td>{{ equipe.poste }}</td>
+									<td>{{ equipe.description }}</td>
+									<td>
+										<a href="{{ path('equipe_show', {'id': equipe.id}) }}">show</a>
+										<a href="{{ path('equipe_edit', {'id': equipe.id}) }}">edit</a>
+									</td>
+								</tr>
+							{% else %}
+								<tr>
+									<td colspan="6">no records found</td>
+								</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+				</section>
+			{% endif %}
 		{% endif %}
-	{% endif %}
+	</section>
 {% endblock %}
