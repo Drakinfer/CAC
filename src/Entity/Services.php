@@ -30,10 +30,14 @@ class Services
     #[ORM\OneToMany(mappedBy: 'Offres', targetEntity: LigneProgramme::class)]
     private $ligneProgrammes;
 
+    #[ORM\OneToMany(mappedBy: 'Offres', targetEntity: Temoignage::class)]
+    private $temoignages;
+
     public function __construct()
     {
         $this->paragrapheOffres = new ArrayCollection();
         $this->ligneProgrammes = new ArrayCollection();
+        $this->temoignages = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -131,6 +135,36 @@ class Services
             // set the owning side to null (unless already changed)
             if ($ligneProgramme->getOffres() === $this) {
                 $ligneProgramme->setOffres(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Temoignage[]
+     */
+    public function getTemoignages(): Collection
+    {
+        return $this->temoignages;
+    }
+
+    public function addTemoignage(Temoignage $temoignage): self
+    {
+        if (!$this->temoignages->contains($temoignage)) {
+            $this->temoignages[] = $temoignage;
+            $temoignage->setOffres($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTemoignage(Temoignage $temoignage): self
+    {
+        if ($this->temoignages->removeElement($temoignage)) {
+            // set the owning side to null (unless already changed)
+            if ($temoignage->getOffres() === $this) {
+                $temoignage->setOffres(null);
             }
         }
 

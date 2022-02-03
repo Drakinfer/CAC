@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ParagrapheTemoignage index{% endblock %}
+
+{% block body %}
+    <h1>ParagrapheTemoignage index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Paragraphe</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for paragraphe_temoignage in paragraphe_temoignages %}
+            <tr>
+                <td>{{ paragraphe_temoignage.id }}</td>
+                <td>{{ paragraphe_temoignage.paragraphe }}</td>
+                <td>
+                    <a href="{{ path('paragraphe_temoignage_show', {'id': paragraphe_temoignage.id}) }}">show</a>
+                    <a href="{{ path('paragraphe_temoignage_edit', {'id': paragraphe_temoignage.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('paragraphe_temoignage_new') }}">Create new</a>
+{% endblock %}

@@ -4,13 +4,17 @@
 {% endblock %}
 
 
-{% block navadmin %}
-	<ul class="nav-links">
-		<li>
-			<a class="admin" href="{{ path('services_index')}}">services Admin</a>
-		</li>
-	</ul>
-{% endblock %}
+ {% block uniquesheets %}  
+ <link rel="stylesheet" href=" {{ asset('assets/css/ServiceVisiteur.css') }} ">
+ {% endblock %}
+
+				 {% block navadmin %}
+				    <ul class="nav-links">
+					<li>
+					<a class="admin" href="{{ path('services_index')}}">services Admin</a>
+					</li>
+					</ul>
+					{% endblock %}
 
 {% block body %}
 	{% for service in services %}
