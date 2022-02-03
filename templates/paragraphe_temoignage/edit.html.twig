@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit ParagrapheTemoignage{% endblock %}
+
+{% block body %}
+    <h1>Edit ParagrapheTemoignage</h1>
+
+    {{ include('paragraphe_temoignage/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('paragraphe_temoignage_index') }}">back to list</a>
+
+    {{ include('paragraphe_temoignage/_delete_form.html.twig') }}
+{% endblock %}

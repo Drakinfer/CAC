@@ -3,13 +3,10 @@
 {% block title %}CAC - Competences Actives Consulting
 {% endblock %}
 
-{% block stylesheets %}
-			<link rel="stylesheet" href=" {{ asset('assets/css/style.css') }} ">
-            <link rel="stylesheet" href=" {{ asset('assets/css/ServiceVisiteur.css') }} ">
-		{% endblock %}
+ {% block uniquesheets %}  
+ <link rel="stylesheet" href=" {{ asset('assets/css/ServiceVisiteur.css') }} ">
+ {% endblock %}
 
-				
-					
 				 {% block navadmin %}
 				    <ul class="nav-links">
 					<li>
