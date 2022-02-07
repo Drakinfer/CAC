@@ -17,7 +17,8 @@ class EquipeType extends AbstractType
             ->add('poste')
             ->add('description')
             ->add('service')
-        ;
+            ->add('phone')
+            ->add('mail');
     }
 
     public function configureOptions(OptionsResolver $resolver): void
