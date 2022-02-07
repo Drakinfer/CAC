@@ -29,6 +29,12 @@ class Equipe
     #[ORM\JoinColumn(nullable: false)]
     private $service;
 
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $phone;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $mail;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -90,6 +96,30 @@ class Equipe
     public function setService(?ServiceEquipe $service): self
     {
         $this->service = $service;
+
+        return $this;
+    }
+
+    public function getPhone(): ?string
+    {
+        return $this->phone;
+    }
+
+    public function setPhone(?string $phone): self
+    {
+        $this->phone = $phone;
+
+        return $this;
+    }
+
+    public function getMail(): ?string
+    {
+        return $this->mail;
+    }
+
+    public function setMail(?string $mail): self
+    {
+        $this->mail = $mail;
 
         return $this;
     }
