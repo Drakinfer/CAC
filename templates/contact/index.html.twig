@@ -1,20 +1,30 @@
 {% extends 'base.html.twig' %}
 
-{% block body %}
+{% block uniquesheets %}
+	<link rel="stylesheet" href="{{ asset('assets/css/contact.css') }}">
+{% endblock %}
 
+{% block body %}
+<section class="contact">
+<div class="contactez-nous">
+<h1>Contactez-nous</h1>
+<p>Un problème, une question, envie de nous envoyer un message d’amour ? N’hésitez pas à utiliser ce formulaire pour prendre contact avec nous !</p>
+
+<form action="/page-traitement-donnees" method="post">
 <div class="bg-white p-5 contact-form">
     <div class="form-group">
 
 {{ form_start(our_form) }}
-    {{ form_row(our_form.fullName, {'attr': {'class': 'form-control'}}) }}
+  <label for="nom">{{ form_row(our_form.fullName, {'attr': {'class': 'form-control'}}) }}</label>
 </div>
 
 <div class="form-group">
-    {{ form_row(our_form.email, {'attr': {'class': 'form-control'}}) }}
+    <label for="email">{{ form_row(our_form.email, {'attr': {'class': 'form-control'}}) }}</label>
 </div>
 
+
 <div class="form-group">
-    {{ form_row(our_form.Message, {'attr': {'class': 'form-control'}}) }}
+  <label for="message">{{ form_row(our_form.Message, {'attr': {'class': 'form-control'}}) }}</label>
 </div>
 
 <div class="form-group">
@@ -24,4 +34,5 @@
 {{ form_end(our_form) }}
 </div>
 </div>
+</section>
 {% endblock %}
