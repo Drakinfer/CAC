@@ -40,66 +40,31 @@
 			</article>
 
 		</section>
-		{% if equipes is defined %}
-			{% if equipes is not empty %}
-				<section id='presentation-equipe'>
-					<h2 id="mid">Notre Equipe</h2>
+		<section>
+			<h2 class="centre">Notre Equipe</h2>
 
-					<table class="table">
-						<thead>
-							<tr>
-								<th>Nom</th>
-								<th>Prenom</th>
-								<th>Poste</th>
-								<th>Description</th>
-								<th>actions</th>
-							</tr>
-						</thead>
-						<tbody>
-							{% for equipe in equipes %}
-								<tr>
-									<td>{{ equipe.nom }}</td>
-									<td>{{ equipe.prenom }}</td>
-									<td>{{ equipe.poste }}</td>
-									<td>{{ equipe.description }}</td>
-									<td>
-										<a href="{{ path('equipe_show', {'id': equipe.id}) }}">show</a>
-										<a href="{{ path('equipe_edit', {'id': equipe.id}) }}">edit</a>
-									</td>
-								</tr>
-							{% else %}
-								<tr>
-									<td colspan="6">no records found</td>
-								</tr>
-							{% endfor %}
-						</tbody>
-					</table>
-				</section>
+			{% if equipes is defined %}
+				{% if equipes is not empty %}
+					<section id="presentation-equipe">
+
+						{% for equipe in equipes %}
+							<div class="container">
+								<div class="card">
+									<div class="front">
+										<h3>{{equipe.prenom}}
+											{{equipe.nom}}<span>
+												{{equipe.poste}}</span>
+										</h3>
+										<ul class="ul-card">
+											<li class="li-card">{{equipe.phone}}</li>
+											<li class="li-card">{{equipe.mail}}</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						{% endfor %}
+					</section>
+				{% endif %}
 			{% endif %}
-		{% endif %}
-	</section>
-	<section>
-		{% for equipe in equipes %}
-			<div class="container">
-				<div class="card">
-					<div class="front">
-						<div class="logo">
-							<span></span>
-						</div>
-					</div>
-					<div class="back">
-						<h3>{{equipe.prenom}}
-							{{equipe.nom}}<span>{{equipe.service}}
-								<i>&</i>
-								{{equipe.service}}</span>
-						</h3>
-						<ul>
-							<li>{{equipe.phone}}</li>
-							<li>{{equipe.mail}}</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		{% endfor %}
-	</section>
-{% endblock %}
+		</section>
+	{% endblock %}
