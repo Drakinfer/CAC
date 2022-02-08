@@ -15,4 +15,24 @@
 	</ul>
 {% endblock %}
 
-{% block body %}{% endblock %}
+{% block body %}
+	<h2 class="centre">Prestataires annexes</h2>
+	<p>Vous trouverez ci-dessous une liste de personne ou d'entreprise ayant été coaché par nous ou simplement nous aidant
+	</p>
+	{% for prestataire in prestataires %}
+		<div class="card text-center">
+			{% if prestataire.image is not empty %}
+				<div class="card-header" style="background-image: url('asset('images/{{prestataire.image}}')'); min-height: 100px; background-repeat: no-repeat"></div>
+			{% endif %}
+			<div class="card-body">
+				<h3 class="card-title">{{prestataire.nom}}</h3>
+				<p class="card-text">{{prestataire.description}}</p>
+				<p>{{prestataire.telephone}}</p>
+				<p>{{prestataire.mail}}</p>
+				{% if prestataire.site is not empty %}
+					<a href="{{prestataire.site}}" class="btn button" target='_blank'>Découvrir</a>
+				{% endif %}
+			</div>
+		</div>
+	{% endfor %}
+{% endblock %}

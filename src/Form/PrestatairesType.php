@@ -6,6 +6,7 @@ use App\Entity\Prestataires;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 class PrestatairesType extends AbstractType
 {
@@ -17,9 +18,17 @@ class PrestatairesType extends AbstractType
             ->add('mail')
             ->add('site')
             ->add('description')
-            ->add('image')
-            ->add('position')
-        ;
+            ->add(
+                'image',
+                FileType::class,
+                [
+                    'label' => 'Charger une image',
+                    'data_class' => null,
+                    'required' => false,
+                    'empty_data' => ''
+                ]
+            )
+            ->add('position');
     }
 
     public function configureOptions(OptionsResolver $resolver): void

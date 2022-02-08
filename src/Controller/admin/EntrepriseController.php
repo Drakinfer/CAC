@@ -16,7 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class EntrepriseController extends AbstractController
 {
     #[Route('/{id}/edit', name: 'entreprise_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Entreprise $entreprise, EntityManagerInterface $entityManager, DescriptionRepository $descriptionRepository): Response
+    public function edit(Request $request, Entreprise $entreprise, EntityManagerInterface $entityManager, DescriptionRepository $descriptionRepository, EntrepriseRepository $entrepriseRepository): Response
     {
         $old_name_image = $entreprise->getImage();
         $path = $this->getParameter('upload_dir') . $old_name_image;
@@ -42,7 +42,7 @@ class EntrepriseController extends AbstractController
         }
 
         return $this->renderForm('entreprise/edit.html.twig', [
-            'entreprise' => $entreprise,
+            'entreprise' => $entrepriseRepository->find(1),
             'form' => $form,
             'descriptions' => $descriptionRepository->triPosition(),
         ]);

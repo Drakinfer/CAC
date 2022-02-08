@@ -61,11 +61,14 @@
 		</main>
 		<footer>
 			<section class="footer">
-				<p>CAC Competences Actives Consulting</p>
-				<p>1 rue example</p>
-				<p>Guadeloupe</p>
-				<p>0101010101</p>
-				<p>compact-cac@gmail.com</p>
+				<p>{{entreprise.nom}}</p>
+				<p>{{entreprise.adresse}}</p>
+				<p>{{entreprise.codepostal}}
+					{{entreprise.ville}}
+					-
+					{{entreprise.pays}}</p>
+				<p>{{entreprise.telephone}}</p>
+				<p>{{entreprise.mail}}</p>
 			</section>
 			<section class="footer">
 				<p>Mentions légales</p>
@@ -74,19 +77,16 @@
 				<nav id="nav-footer">
 					<ul class="nav-links-footer">
 						<li>
-							<a href="">Nos services</a>
+							<a href="{{ path('service_visiteur') }}">Nos services</a>
 						</li>
 						<li>
-							<a href="">CAC</a>
+							<a href="{{ path('service_annexe') }}">Services Annexes</a>
 						</li>
 						<li>
-							<a href="">Services Annexes</a>
+							<a href="{{ path('presentation') }}">Qui sommes-nous?</a>
 						</li>
 						<li>
-							<a href="">Nous contacter</a>
-						</li>
-						<li>
-							<a href="">Blog</a>
+							<a href="{{path('contact')}}">Nous contacter</a>
 						</li>
 					</ul>
 				</nav>
