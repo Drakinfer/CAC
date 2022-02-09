@@ -4,6 +4,7 @@ namespace App\Controller\admin;
 
 use App\Entity\ServiceEquipe;
 use App\Form\ServiceEquipeType;
+use App\Repository\EntrepriseRepository;
 use App\Repository\ServiceEquipeRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -15,7 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ServiceEquipeController extends AbstractController
 {
     #[Route('/new', name: 'service_equipe_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    public function new(Request $request, EntityManagerInterface $entityManager, EntrepriseRepository $entrepriseRepository): Response
     {
         $serviceEquipe = new ServiceEquipe();
         $form = $this->createForm(ServiceEquipeType::class, $serviceEquipe);
@@ -31,19 +32,21 @@ class ServiceEquipeController extends AbstractController
         return $this->renderForm('service_equipe/new.html.twig', [
             'service_equipe' => $serviceEquipe,
             'form' => $form,
+            'entreprise' => $entrepriseRepository->find(1),
         ]);
     }
 
     #[Route('/{id}', name: 'service_equipe_show', methods: ['GET'])]
-    public function show(ServiceEquipe $serviceEquipe): Response
+    public function show(ServiceEquipe $serviceEquipe, EntrepriseRepository $entrepriseRepository): Response
     {
         return $this->render('service_equipe/show.html.twig', [
             'service_equipe' => $serviceEquipe,
+            'entreprise' => $entrepriseRepository->find(1),
         ]);
     }
 
     #[Route('/{id}/edit', name: 'service_equipe_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, ServiceEquipe $serviceEquipe, EntityManagerInterface $entityManager): Response
+    public function edit(Request $request, ServiceEquipe $serviceEquipe, EntityManagerInterface $entityManager, EntrepriseRepository $entrepriseRepository): Response
     {
         $form = $this->createForm(ServiceEquipeType::class, $serviceEquipe);
         $form->handleRequest($request);
@@ -57,6 +60,7 @@ class ServiceEquipeController extends AbstractController
         return $this->renderForm('service_equipe/edit.html.twig', [
             'service_equipe' => $serviceEquipe,
             'form' => $form,
+            'entreprise' => $entrepriseRepository->find(1),
         ]);
     }
 

@@ -4,6 +4,7 @@ namespace App\Controller\admin;
 
 use App\Entity\Equipe;
 use App\Form\EquipeType;
+use App\Repository\EntrepriseRepository;
 use App\Repository\EquipeRepository;
 use App\Repository\ServiceEquipeRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -16,16 +17,17 @@ use Symfony\Component\Routing\Annotation\Route;
 class EquipeController extends AbstractController
 {
     #[Route('/', name: 'equipe_index', methods: ['GET'])]
-    public function index(EquipeRepository $equipeRepository, ServiceEquipeRepository $serviceEquipeRepository): Response
+    public function index(EquipeRepository $equipeRepository, ServiceEquipeRepository $serviceEquipeRepository, EntrepriseRepository $entrepriseRepository): Response
     {
         return $this->render('equipe/index.html.twig', [
             'equipes' => $equipeRepository->findAll(),
             'service_equipes' => $serviceEquipeRepository->findAll(),
+            'entreprise' => $entrepriseRepository->find(1),
         ]);
     }
 
     #[Route('/new', name: 'equipe_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    public function new(Request $request, EntityManagerInterface $entityManager, EntrepriseRepository $entrepriseRepository): Response
     {
         $equipe = new Equipe();
         $form = $this->createForm(EquipeType::class, $equipe);
@@ -41,19 +43,21 @@ class EquipeController extends AbstractController
         return $this->renderForm('equipe/new.html.twig', [
             'equipe' => $equipe,
             'form' => $form,
+            'entreprise' => $entrepriseRepository->find(1),
         ]);
     }
 
     #[Route('/{id}', name: 'equipe_show', methods: ['GET'])]
-    public function show(Equipe $equipe): Response
+    public function show(Equipe $equipe, EntrepriseRepository $entrepriseRepository): Response
     {
         return $this->render('equipe/show.html.twig', [
             'equipe' => $equipe,
+            'entreprise' => $entrepriseRepository->find(1),
         ]);
     }
 
     #[Route('/{id}/edit', name: 'equipe_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Equipe $equipe, EntityManagerInterface $entityManager): Response
+    public function edit(Request $request, Equipe $equipe, EntityManagerInterface $entityManager, EntrepriseRepository $entrepriseRepository): Response
     {
         $form = $this->createForm(EquipeType::class, $equipe);
         $form->handleRequest($request);
@@ -67,6 +71,7 @@ class EquipeController extends AbstractController
         return $this->renderForm('equipe/edit.html.twig', [
             'equipe' => $equipe,
             'form' => $form,
+            'entreprise' => $entrepriseRepository->find(1),
         ]);
     }
 

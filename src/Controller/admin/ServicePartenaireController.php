@@ -4,6 +4,7 @@ namespace App\Controller\admin;
 
 use App\Entity\ServicePartenaire;
 use App\Form\ServicePartenaireType;
+use App\Repository\EntrepriseRepository;
 use App\Repository\ServicePartenaireRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -15,15 +16,16 @@ use Symfony\Component\Routing\Annotation\Route;
 class ServicePartenaireController extends AbstractController
 {
     #[Route('/', name: 'service_partenaire_index', methods: ['GET'])]
-    public function index(ServicePartenaireRepository $servicePartenaireRepository): Response
+    public function index(ServicePartenaireRepository $servicePartenaireRepository, EntrepriseRepository $entrepriseRepository): Response
     {
         return $this->render('service_partenaire/index.html.twig', [
             'service_partenaires' => $servicePartenaireRepository->findAll(),
+            'entreprise' => $entrepriseRepository->find(1),
         ]);
     }
 
     #[Route('/new', name: 'service_partenaire_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    public function new(Request $request, EntityManagerInterface $entityManager, EntrepriseRepository $entrepriseRepository): Response
     {
         $servicePartenaire = new ServicePartenaire();
         $form = $this->createForm(ServicePartenaireType::class, $servicePartenaire);
@@ -39,19 +41,21 @@ class ServicePartenaireController extends AbstractController
         return $this->renderForm('service_partenaire/new.html.twig', [
             'service_partenaire' => $servicePartenaire,
             'form' => $form,
+            'entreprise' => $entrepriseRepository->find(1),
         ]);
     }
 
     #[Route('/{id}', name: 'service_partenaire_show', methods: ['GET'])]
-    public function show(ServicePartenaire $servicePartenaire): Response
+    public function show(ServicePartenaire $servicePartenaire, EntrepriseRepository $entrepriseRepository): Response
     {
         return $this->render('service_partenaire/show.html.twig', [
             'service_partenaire' => $servicePartenaire,
+            'entreprise' => $entrepriseRepository->find(1),
         ]);
     }
 
     #[Route('/{id}/edit', name: 'service_partenaire_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, ServicePartenaire $servicePartenaire, EntityManagerInterface $entityManager): Response
+    public function edit(Request $request, ServicePartenaire $servicePartenaire, EntityManagerInterface $entityManager, EntrepriseRepository $entrepriseRepository): Response
     {
         $form = $this->createForm(ServicePartenaireType::class, $servicePartenaire);
         $form->handleRequest($request);
@@ -65,13 +69,14 @@ class ServicePartenaireController extends AbstractController
         return $this->renderForm('service_partenaire/edit.html.twig', [
             'service_partenaire' => $servicePartenaire,
             'form' => $form,
+            'entreprise' => $entrepriseRepository->find(1),
         ]);
     }
 
     #[Route('/{id}', name: 'service_partenaire_delete', methods: ['POST'])]
     public function delete(Request $request, ServicePartenaire $servicePartenaire, EntityManagerInterface $entityManager): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$servicePartenaire->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $servicePartenaire->getId(), $request->request->get('_token'))) {
             $entityManager->remove($servicePartenaire);
             $entityManager->flush();
         }
