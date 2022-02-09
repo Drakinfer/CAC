@@ -16,7 +16,7 @@ class PresentationController extends AbstractController
     {
 
         return $this->render('presentation/index.html.twig', [
-            'entreprise' => $entrepriseRepository->findAll(),
+            'entreprise' => $entrepriseRepository->find(1),
             'description' => $descriptionRepository->triPosition(),
             'equipes' => $equipeRepository->findAll(),
         ]);

@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\ParagrapheTemoignage;
 use App\Form\ParagrapheTemoignageType;
+use App\Repository\EntrepriseRepository;
 use App\Repository\ParagrapheTemoignageRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -15,15 +16,16 @@ use Symfony\Component\Routing\Annotation\Route;
 class ParagrapheTemoignageController extends AbstractController
 {
     #[Route('/', name: 'paragraphe_temoignage_index', methods: ['GET'])]
-    public function index(ParagrapheTemoignageRepository $paragrapheTemoignageRepository): Response
+    public function index(ParagrapheTemoignageRepository $paragrapheTemoignageRepository, EntrepriseRepository $entrepriseRepository): Response
     {
         return $this->render('paragraphe_temoignage/index.html.twig', [
             'paragraphe_temoignages' => $paragrapheTemoignageRepository->findAll(),
+            'entreprise' => $entrepriseRepository->find(1),
         ]);
     }
 
     #[Route('/new', name: 'paragraphe_temoignage_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    public function new(Request $request, EntityManagerInterface $entityManager, EntrepriseRepository $entrepriseRepository): Response
     {
         $paragrapheTemoignage = new ParagrapheTemoignage();
         $form = $this->createForm(ParagrapheTemoignageType::class, $paragrapheTemoignage);
@@ -39,19 +41,21 @@ class ParagrapheTemoignageController extends AbstractController
         return $this->renderForm('paragraphe_temoignage/new.html.twig', [
             'paragraphe_temoignage' => $paragrapheTemoignage,
             'form' => $form,
+            'entreprise' => $entrepriseRepository->find(1),
         ]);
     }
 
     #[Route('/{id}', name: 'paragraphe_temoignage_show', methods: ['GET'])]
-    public function show(ParagrapheTemoignage $paragrapheTemoignage): Response
+    public function show(ParagrapheTemoignage $paragrapheTemoignage, EntrepriseRepository $entrepriseRepository): Response
     {
         return $this->render('paragraphe_temoignage/show.html.twig', [
             'paragraphe_temoignage' => $paragrapheTemoignage,
+            'entreprise' => $entrepriseRepository->find(1),
         ]);
     }
 
     #[Route('/{id}/edit', name: 'paragraphe_temoignage_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, ParagrapheTemoignage $paragrapheTemoignage, EntityManagerInterface $entityManager): Response
+    public function edit(Request $request, ParagrapheTemoignage $paragrapheTemoignage, EntityManagerInterface $entityManager, EntrepriseRepository $entrepriseRepository): Response
     {
         $form = $this->createForm(ParagrapheTemoignageType::class, $paragrapheTemoignage);
         $form->handleRequest($request);
@@ -65,13 +69,14 @@ class ParagrapheTemoignageController extends AbstractController
         return $this->renderForm('paragraphe_temoignage/edit.html.twig', [
             'paragraphe_temoignage' => $paragrapheTemoignage,
             'form' => $form,
+            'entreprise' => $entrepriseRepository->find(1),
         ]);
     }
 
     #[Route('/{id}', name: 'paragraphe_temoignage_delete', methods: ['POST'])]
     public function delete(Request $request, ParagrapheTemoignage $paragrapheTemoignage, EntityManagerInterface $entityManager): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$paragrapheTemoignage->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $paragrapheTemoignage->getId(), $request->request->get('_token'))) {
             $entityManager->remove($paragrapheTemoignage);
             $entityManager->flush();
         }
