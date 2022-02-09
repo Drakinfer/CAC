@@ -47,4 +47,21 @@ class ServicesRepository extends ServiceEntityRepository
         ;
     }
     */
+
+
+    public function TriParticuliers(): ?Services
+    {
+        return $this->createQueryBuilder('d')
+            ->andWhere('d.type = Particuliers')
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function TriEntreprises(): ?Services
+    {
+        return $this->createQueryBuilder('d')
+            ->andWhere('d.type = Entreprises')
+            ->getQuery()
+            ->getResult();
+    }
 }
