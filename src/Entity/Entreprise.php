@@ -57,6 +57,9 @@ class Entreprise
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $image;
 
+    #[ORM\Column(type: 'float')]
+    private $capital;
+
     public function __construct()
     {
         $this->descriptions = new ArrayCollection();
@@ -254,6 +257,18 @@ class Entreprise
     public function setImage(?string $image): self
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    public function getCapital(): ?float
+    {
+        return $this->capital;
+    }
+
+    public function setCapital(float $capital): self
+    {
+        $this->capital = $capital;
 
         return $this;
     }

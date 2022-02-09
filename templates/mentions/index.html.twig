@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mentions Légales - Competences Actives Consulting
+{% endblock %}
+{% block uniquesheets %}
+	<link rel="stylesheet" href="{{asset('assets/css/mentions.css')}}">
+{% endblock %}
+
+{% block body %}
+	<h2>Mentions Légales</h2>
+	<p class="bold">Conformément aux dispositions de la loi n° 2004-575 du 21 juin 2004 pour la confiance en l'économie numérique, il est précisé aux utilisateurs du Site l'identité des différents intervenants dans le cadre de sa réalisation et de son suivi.</p>
+	<h3>Edition du site</h3>
+	<p>Le site  est édité par la société
+		{{entreprise.forme}}
+		{{entreprise.nom}}
+		au capital de
+		{{entreprise.capital}}
+		€, immatriculée au Registre du commerce et des sociétés de Paris sous le n°
+		{{entreprise.siret}}
+		et dont le siège social est situé
+		{{entreprise.adresse}},
+		{{entreprise.codepostal}}
+		{{entreprise.ville}}
+		(Siret n°{{entreprise.siret}}).</p>
+
+	<h3>Responsable de publication</h3>
+	<p>Madame Katia CRAMER, Directrice de
+		{{entreprise.nom}}</p>
+
+
+	<h3>Hébergeur</h3>
+	<p></p>
+
+	<h3>Nous contacter</h3>
+	<ul>
+		<li>par téléphone :
+			{{entreprise.telephone}}</li>
+		<li>par mail :
+			{{entreprise.mail}}</li>
+		<li>par courrier :
+			{{entreprise.adresse}}
+			{{entreprise.codepostal}}
+			{{entreprise.ville}}
+			{{entreprise.pays}}</li>
+	</ul>
+{% endblock %}
