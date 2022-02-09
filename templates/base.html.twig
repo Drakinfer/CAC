@@ -2,7 +2,8 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<meta>
+		<meta name="author" content="Site conçu et développé par Reggie CRAMER et Alexis CHAUVEAU, en stage pour la société Competences Active Consulting - Février 2022.">
+		<meta name="description" content="Venez découvrir les services proposés par la société Competences Active Consulting, allant du développement personnel et de l'aide à la recherche d'emploi pour les particuliers, au bilan de compétences et ateliers management pour les entreprises.">
 		<title>
 			{% block title %}CAC - Competences Actives Consulting
 			{% endblock %}
@@ -13,6 +14,7 @@
 			<link rel="preconnect" href="https://fonts.googleapis.com">
 			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 			<link href="https://fonts.googleapis.com/css2?family=BenchNine:wght@300;400&display=swap" rel="stylesheet">
+			<link rel="shortcut icon" type="image/png" href="{{asset('images/favicon.png')}}"/>
 		{% endblock %}
 		{% block uniquesheets %}{% endblock %}
 	</head>
@@ -71,7 +73,7 @@
 				<p>{{entreprise.mail}}</p>
 			</section>
 			<section class="footer">
-				<p>Mentions légales</p>
+				<a href="{{path('mentions')}}">Mentions légales</a>
 			</section>
 			<section class="footer">
 				<nav id="nav-footer">

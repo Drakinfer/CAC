@@ -23,6 +23,7 @@ class EntrepriseType extends AbstractType
             ->add('telephone')
             ->add('mail')
             ->add('portable')
+            ->add('capital')
             ->add('heure_ouverture')
             ->add('heure_fermeture')
             ->add(

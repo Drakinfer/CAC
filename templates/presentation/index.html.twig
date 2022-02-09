@@ -14,7 +14,7 @@
 {% block navadmin %}
 	<ul class="nav-links">
 		<li>
-			<a href="{{path('entreprise_edit', {'id': entreprise[0].id})}}">Entreprise</a>
+			<a href="{{path('entreprise_edit', {'id': entreprise.id})}}">Entreprise</a>
 		</li>
 
 		<li>
@@ -28,10 +28,10 @@
 
 {% block body %}
 	<section id="bg">
-		<h2 class="centre">{{entreprise[0].nom}}</h2>
+		<h2 class="centre">{{entreprise.nom}}</h2>
 		<section id='presentation-entreprise'>
 			<article id="img-article">
-				<img id="img-entreprise" src="{{asset('images/' ~ entreprise[0].image) }}" alt="présentation de l'entreprise">
+				<img id="img-entreprise" src="{{asset('images/' ~ entreprise.image) }}" alt="présentation de l'entreprise">
 			</article>
 			<article>
 				{% for description in description %}

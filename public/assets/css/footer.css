@@ -21,10 +21,15 @@ footer{
 
 }
 
-.nav-links-footer li a{
+footer a{
     color: white;
     text-decoration: none;
     
+}
+
+footer p{
+    margin-top: 1px;
+    margin-bottom: 1px;
 }
 
 @media screen and (min-width:769px){
