@@ -17,15 +17,13 @@
 					{% endblock %}
 
 {% block body %}
-	{% for service in services %}
-		{{ service.name }}
-	{% endfor %}
+	
 	<h1 class="titre">Nos services</h1>
 
 
-	{# <section>
-				<img src=" {{ asset('images/training.jpg') }} " alt="photo" id="photo">
-			</section> #}
+	<section>
+				<img src=" {{ asset('images/training1.jpg') }} " alt="photo" id="photo">
+			</section> 
 	<p class="texte">Lorem ipsum dolor sit amet,
 		<br>consectetur adipiscing elit, sed
 		<br>do eiusmod tempor incididunt ut
@@ -40,6 +38,9 @@
 		<br>
 		<p>• Lorem ipsum dolor sit amet, consectetur adipiscing facilisis.</p>
 
-
+{% for service in services %}
+        {{ service.id }}
+		{{ service.name }}
+	{% endfor %}
 	</div>
 {% endblock %}

@@ -33,6 +33,9 @@ class Services
     #[ORM\OneToMany(mappedBy: 'Offres', targetEntity: Temoignage::class)]
     private $temoignages;
 
+    #[ORM\ManyToOne(targetEntity: Type::class, inversedBy: 'services')]
+    private $type;
+
     public function __construct()
     {
         $this->paragrapheOffres = new ArrayCollection();
@@ -167,6 +170,18 @@ class Services
                 $temoignage->setOffres(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getType(): ?Type
+    {
+        return $this->type;
+    }
+
+    public function setType(?Type $type): self
+    {
+        $this->type = $type;
 
         return $this;
     }
