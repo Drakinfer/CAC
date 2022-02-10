@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Repository\EntrepriseRepository;
+use App\Repository\ReseauxRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -13,7 +14,7 @@ class SecurityController extends AbstractController
     /**
      * @Route("/login", name="app_login")
      */
-    public function login(AuthenticationUtils $authenticationUtils, EntrepriseRepository $entrepriseRepository): Response
+    public function login(AuthenticationUtils $authenticationUtils, EntrepriseRepository $entrepriseRepository, ReseauxRepository $reseauxRepository): Response
     {
         // if ($this->getUser()) {
         //     return $this->redirectToRoute('target_path');
@@ -28,6 +29,7 @@ class SecurityController extends AbstractController
             'last_username' => $lastUsername,
             'error' => $error,
             'entreprise' => $entrepriseRepository->find(1),
+            'reseaux' => $reseauxRepository->findAll(),
         ]);
     }
 

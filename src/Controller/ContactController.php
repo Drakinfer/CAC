@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Form\ContactType;
 use App\Repository\EntrepriseRepository;
+use App\Repository\ReseauxRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Mime\Email;
@@ -14,7 +15,7 @@ class ContactController extends AbstractController
 {
 
     #[Route('/contact', name: 'contact')]
-    public function index(Request $request, MailerInterface $mailer, EntrepriseRepository $entrepriseRepository)
+    public function index(Request $request, MailerInterface $mailer, EntrepriseRepository $entrepriseRepository, ReseauxRepository $reseauxRepository)
     {
         $form = $this->createForm(ContactType::class);
         $form->handleRequest($request);
@@ -37,6 +38,7 @@ class ContactController extends AbstractController
         return $this->render('contact/index.html.twig', [
             'our_form' => $form->createView(),
             'entreprise' => $entrepriseRepository->find(1),
+            'reseaux' => $reseauxRepository->findAll(),
         ]);
     }
 }

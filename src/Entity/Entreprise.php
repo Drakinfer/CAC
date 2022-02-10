@@ -60,6 +60,15 @@ class Entreprise
     #[ORM\Column(type: 'float')]
     private $capital;
 
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $logo;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $banniere;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $favicon;
+
     public function __construct()
     {
         $this->descriptions = new ArrayCollection();
@@ -269,6 +278,42 @@ class Entreprise
     public function setCapital(float $capital): self
     {
         $this->capital = $capital;
+
+        return $this;
+    }
+
+    public function getLogo(): ?string
+    {
+        return $this->logo;
+    }
+
+    public function setLogo(?string $logo): self
+    {
+        $this->logo = $logo;
+
+        return $this;
+    }
+
+    public function getBanniere(): ?string
+    {
+        return $this->banniere;
+    }
+
+    public function setBanniere(?string $banniere): self
+    {
+        $this->banniere = $banniere;
+
+        return $this;
+    }
+
+    public function getFavicon(): ?string
+    {
+        return $this->favicon;
+    }
+
+    public function setFavicon(?string $favicon): self
+    {
+        $this->favicon = $favicon;
 
         return $this;
     }
