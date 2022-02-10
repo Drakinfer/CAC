@@ -6,6 +6,7 @@ use App\Entity\Prestataires;
 use App\Form\PrestatairesType;
 use App\Repository\EntrepriseRepository;
 use App\Repository\PrestatairesRepository;
+use App\Repository\ReseauxRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,16 +17,17 @@ use Symfony\Component\Routing\Annotation\Route;
 class PrestatairesController extends AbstractController
 {
     #[Route('/', name: 'prestataires_index', methods: ['GET'])]
-    public function index(PrestatairesRepository $prestatairesRepository, EntrepriseRepository $entrepriseRepository): Response
+    public function index(PrestatairesRepository $prestatairesRepository, EntrepriseRepository $entrepriseRepository, ReseauxRepository $reseauxRepository): Response
     {
         return $this->render('prestataires/index.html.twig', [
             'prestataires' => $prestatairesRepository->findAll(),
             'entreprise' => $entrepriseRepository->find(1),
+            'reseaux' => $reseauxRepository->findAll(),
         ]);
     }
 
     #[Route('/new', name: 'prestataires_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager, EntrepriseRepository $entrepriseRepository): Response
+    public function new(Request $request, EntityManagerInterface $entityManager, EntrepriseRepository $entrepriseRepository, ReseauxRepository $reseauxRepository): Response
     {
         $prestataire = new Prestataires();
         $form = $this->createForm(PrestatairesType::class, $prestataire);
@@ -47,20 +49,22 @@ class PrestatairesController extends AbstractController
             'prestataire' => $prestataire,
             'form' => $form,
             'entreprise' => $entrepriseRepository->find(1),
+            'reseaux' => $reseauxRepository->findAll(),
         ]);
     }
 
     #[Route('/{id}', name: 'prestataires_show', methods: ['GET'])]
-    public function show(Prestataires $prestataire, EntrepriseRepository $entrepriseRepository): Response
+    public function show(Prestataires $prestataire, EntrepriseRepository $entrepriseRepository, ReseauxRepository $reseauxRepository): Response
     {
         return $this->render('prestataires/show.html.twig', [
             'prestataire' => $prestataire,
             'entreprise' => $entrepriseRepository->find(1),
+            'reseaux' => $reseauxRepository->findAll(),
         ]);
     }
 
     #[Route('/{id}/edit', name: 'prestataires_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Prestataires $prestataire, EntityManagerInterface $entityManager, EntrepriseRepository $entrepriseRepository): Response
+    public function edit(Request $request, Prestataires $prestataire, EntityManagerInterface $entityManager, EntrepriseRepository $entrepriseRepository, ReseauxRepository $reseauxRepository): Response
     {
         $old_name_image = $prestataire->getImage();
         $path = $this->getParameter('upload_dir') . $old_name_image;
@@ -89,6 +93,7 @@ class PrestatairesController extends AbstractController
             'prestataire' => $prestataire,
             'form' => $form,
             'entreprise' => $entrepriseRepository->find(1),
+            'reseaux' => $reseauxRepository->findAll(),
         ]);
     }
 

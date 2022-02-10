@@ -35,6 +35,36 @@ class EntrepriseType extends AbstractType
                     'required' => false,
                     'empty_data' => ''
                 ]
+            )
+            ->add(
+                'logo',
+                FileType::class,
+                [
+                    'label' => 'Charger un logo',
+                    'data_class' => null,
+                    'required' => false,
+                    'empty_data' => ''
+                ]
+            )
+            ->add(
+                'banniere',
+                FileType::class,
+                [
+                    'label' => 'Charger une banniere',
+                    'data_class' => null,
+                    'required' => false,
+                    'empty_data' => ''
+                ]
+            )
+            ->add(
+                'favicon',
+                FileType::class,
+                [
+                    'label' => 'Charger une favicon',
+                    'data_class' => null,
+                    'required' => false,
+                    'empty_data' => ''
+                ]
             );
     }
 

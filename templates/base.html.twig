@@ -14,14 +14,14 @@
 			<link rel="preconnect" href="https://fonts.googleapis.com">
 			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 			<link href="https://fonts.googleapis.com/css2?family=BenchNine:wght@300;400&display=swap" rel="stylesheet">
-			<link rel="shortcut icon" type="image/png" href="{{asset('images/favicon.png')}}"/>
+			<link rel="shortcut icon" type="image/png" href="{{ asset('images/' ~ entreprise.favicon) }}"/>
 		{% endblock %}
 		{% block uniquesheets %}{% endblock %}
 	</head>
 	<body>
 		{% block navbar %}
 			<header>
-				<a href="{{ path('home') }}"><img src=" {{ asset('images/Logo.jpg') }} " alt="logo CAC" id="logo"></a>
+				<a href="{{ path('home') }}"><img src=" {{ asset('images/' ~ entreprise.logo) }} " alt="logo CAC" id="logo"></a>
 				<nav id="nav-header">
 					<ul class="nav-links">
 						<li>
@@ -56,7 +56,7 @@
 		<main>
 			{% block banniere %}
 				<section id="banniere-section">
-					<img src=" {{ asset('images/banniere.jpg') }} " alt="banniere" id="banniere">
+					<img src=" {{ asset('images/' ~ entreprise.banniere) }} " alt="banniere" id="banniere">
 				</section>
 			{% endblock %}
 			{% block body %}{% endblock %}
@@ -76,7 +76,7 @@
 				<a href="{{path('mentions')}}">Mentions légales</a>
 			</section>
 			<section class="footer">
-				<nav id="nav-footer">
+				<nav class="nav-footer">
 					<ul class="nav-links-footer">
 						<li>
 							<a href="{{ path('service_visiteur') }}">Nos services</a>
@@ -93,6 +93,20 @@
 					</ul>
 				</nav>
 			</section>
+			{% if reseaux %}
+				<section class="footer">
+					<nav class="nav-footer">
+						<ul class="nav-links-footer">
+							{% for reseau in reseaux %}
+								<li>
+									<a href="{{ reseau.lien }}"><img src="{{ asset('images/' ~ reseau.image) }}" alt="logo {{reseau.nom}}">
+										{{reseau.nom}}</a>
+								</li>
+							{% endfor %}
+						</ul>
+					</nav>
+				</section>
+			{% endif %}
 		</footer>
 		{% block javascripts %}
 			<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
