@@ -49,18 +49,20 @@ class ServicesRepository extends ServiceEntityRepository
     */
 
 
-    public function TriParticuliers(): ?Services
+    public function TriParticuliers()
     {
         return $this->createQueryBuilder('d')
-            ->andWhere('d.type = Particuliers')
+            ->andWhere('d.type = 1')
+            ->orderBy('d.id', 'ASC')
             ->getQuery()
             ->getResult();
     }
 
-    public function TriEntreprises(): ?Services
+    public function TriEntreprises()
     {
         return $this->createQueryBuilder('d')
-            ->andWhere('d.type = Entreprises')
+            ->andWhere('d.type = 2')
+            ->orderBy('d.id', 'ASC')
             ->getQuery()
             ->getResult();
     }

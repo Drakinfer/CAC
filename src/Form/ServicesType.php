@@ -15,7 +15,7 @@ class ServicesType extends AbstractType
             ->add('name')
             ->add('position')
             ->add('CategoriesServices')
-        ;
+            ->add('type');
     }
 
     public function configureOptions(OptionsResolver $resolver): void

@@ -6,6 +6,7 @@ use App\Entity\Description;
 use App\Form\DescriptionType;
 use App\Repository\DescriptionRepository;
 use App\Repository\EntrepriseRepository;
+use App\Repository\ReseauxRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,16 +17,17 @@ use Symfony\Component\Routing\Annotation\Route;
 class DescriptionController extends AbstractController
 {
     #[Route('/', name: 'description_index', methods: ['GET'])]
-    public function index(DescriptionRepository $descriptionRepository, EntrepriseRepository $entrepriseRepository): Response
+    public function index(DescriptionRepository $descriptionRepository, EntrepriseRepository $entrepriseRepository, ReseauxRepository $reseauxRepository): Response
     {
         return $this->render('description/index.html.twig', [
             'descriptions' => $descriptionRepository->findAll(),
             'entreprise' => $entrepriseRepository->find(1),
+            'reseaux' => $reseauxRepository->findAll(),
         ]);
     }
 
     #[Route('/new', name: 'description_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager, EntrepriseRepository $entrepriseRepository): Response
+    public function new(Request $request, EntityManagerInterface $entityManager, EntrepriseRepository $entrepriseRepository, ReseauxRepository $reseauxRepository): Response
     {
         $description = new Description();
         $form = $this->createForm(DescriptionType::class, $description);
@@ -42,20 +44,22 @@ class DescriptionController extends AbstractController
             'description' => $description,
             'form' => $form,
             'entreprise' => $entrepriseRepository->find(1),
+            'reseaux' => $reseauxRepository->findAll(),
         ]);
     }
 
     #[Route('/{id}', name: 'description_show', methods: ['GET'])]
-    public function show(Description $description, EntrepriseRepository $entrepriseRepository): Response
+    public function show(Description $description, EntrepriseRepository $entrepriseRepository, ReseauxRepository $reseauxRepository): Response
     {
         return $this->render('description/show.html.twig', [
             'description' => $description,
             'entreprise' => $entrepriseRepository->find(1),
+            'reseaux' => $reseauxRepository->findAll(),
         ]);
     }
 
     #[Route('/{id}/edit', name: 'description_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Description $description, EntityManagerInterface $entityManager, EntrepriseRepository $entrepriseRepository): Response
+    public function edit(Request $request, Description $description, EntityManagerInterface $entityManager, EntrepriseRepository $entrepriseRepository, ReseauxRepository $reseauxRepository): Response
     {
         $form = $this->createForm(DescriptionType::class, $description);
         $form->handleRequest($request);
@@ -70,6 +74,7 @@ class DescriptionController extends AbstractController
             'description' => $description,
             'form' => $form,
             'entreprise' => $entrepriseRepository->find(1),
+            'reseaux' => $reseauxRepository->findAll(),
         ]);
     }
 

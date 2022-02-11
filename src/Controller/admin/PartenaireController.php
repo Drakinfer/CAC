@@ -6,6 +6,7 @@ use App\Entity\Partenaire;
 use App\Form\Partenaire1Type;
 use App\Repository\EntrepriseRepository;
 use App\Repository\PartenaireRepository;
+use App\Repository\ReseauxRepository;
 use App\Repository\ServicePartenaireRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -17,17 +18,18 @@ use Symfony\Component\Routing\Annotation\Route;
 class PartenaireController extends AbstractController
 {
     #[Route('/', name: 'partenaire_index', methods: ['GET'])]
-    public function index(PartenaireRepository $partenaireRepository, ServicePartenaireRepository $servicePartenaireRepository, EntrepriseRepository $entrepriseRepository): Response
+    public function index(PartenaireRepository $partenaireRepository, ServicePartenaireRepository $servicePartenaireRepository, EntrepriseRepository $entrepriseRepository, ReseauxRepository $reseauxRepository): Response
     {
         return $this->render('partenaire/index.html.twig', [
             'partenaires' => $partenaireRepository->findAll(),
             'service_partenaires' => $servicePartenaireRepository->findAll(),
             'entreprise' => $entrepriseRepository->find(1),
+            'reseaux' => $reseauxRepository->findAll(),
         ]);
     }
 
     #[Route('/new', name: 'partenaire_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager, EntrepriseRepository $entrepriseRepository): Response
+    public function new(Request $request, EntityManagerInterface $entityManager, EntrepriseRepository $entrepriseRepository, ReseauxRepository $reseauxRepository): Response
     {
         $partenaire = new Partenaire();
         $form = $this->createForm(Partenaire1Type::class, $partenaire);
@@ -44,20 +46,22 @@ class PartenaireController extends AbstractController
             'partenaire' => $partenaire,
             'form' => $form,
             'entreprise' => $entrepriseRepository->find(1),
+            'reseaux' => $reseauxRepository->findAll(),
         ]);
     }
 
     #[Route('/{id}', name: 'partenaire_show', methods: ['GET'])]
-    public function show(Partenaire $partenaire, EntrepriseRepository $entrepriseRepository): Response
+    public function show(Partenaire $partenaire, EntrepriseRepository $entrepriseRepository, ReseauxRepository $reseauxRepository): Response
     {
         return $this->render('partenaire/show.html.twig', [
             'partenaire' => $partenaire,
             'entreprise' => $entrepriseRepository->find(1),
+            'reseaux' => $reseauxRepository->findAll(),
         ]);
     }
 
     #[Route('/{id}/edit', name: 'partenaire_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Partenaire $partenaire, EntityManagerInterface $entityManager, EntrepriseRepository $entrepriseRepository): Response
+    public function edit(Request $request, Partenaire $partenaire, EntityManagerInterface $entityManager, EntrepriseRepository $entrepriseRepository, ReseauxRepository $reseauxRepository): Response
     {
         $form = $this->createForm(Partenaire1Type::class, $partenaire);
         $form->handleRequest($request);
@@ -72,6 +76,7 @@ class PartenaireController extends AbstractController
             'partenaire' => $partenaire,
             'form' => $form,
             'entreprise' => $entrepriseRepository->find(1),
+            'reseaux' => $reseauxRepository->findAll(),
         ]);
     }
 

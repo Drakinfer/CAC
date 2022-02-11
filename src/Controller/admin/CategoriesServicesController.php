@@ -6,6 +6,7 @@ use App\Entity\CategoriesServices;
 use App\Form\CategoriesServicesType;
 use App\Repository\CategoriesServicesRepository;
 use App\Repository\EntrepriseRepository;
+use App\Repository\ReseauxRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,16 +17,17 @@ use Symfony\Component\Routing\Annotation\Route;
 class CategoriesServicesController extends AbstractController
 {
     #[Route('/', name: 'categories_services_index', methods: ['GET'])]
-    public function index(CategoriesServicesRepository $categoriesServicesRepository, EntrepriseRepository $entrepriseRepository): Response
+    public function index(CategoriesServicesRepository $categoriesServicesRepository, EntrepriseRepository $entrepriseRepository, ReseauxRepository $reseauxRepository): Response
     {
         return $this->render('categories_services/index.html.twig', [
             'categories_services' => $categoriesServicesRepository->findAll(),
             'entreprise' => $entrepriseRepository->find(1),
+            'reseaux' => $reseauxRepository->findAll(),
         ]);
     }
 
     #[Route('/new', name: 'categories_services_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager, EntrepriseRepository $entrepriseRepository): Response
+    public function new(Request $request, EntityManagerInterface $entityManager, EntrepriseRepository $entrepriseRepository, ReseauxRepository $reseauxRepository): Response
     {
         $categoriesService = new CategoriesServices();
         $form = $this->createForm(CategoriesServicesType::class, $categoriesService);
@@ -42,20 +44,22 @@ class CategoriesServicesController extends AbstractController
             'categories_service' => $categoriesService,
             'form' => $form,
             'entreprise' => $entrepriseRepository->find(1),
+            'reseaux' => $reseauxRepository->findAll(),
         ]);
     }
 
     #[Route('/{id}', name: 'categories_services_show', methods: ['GET'])]
-    public function show(CategoriesServices $categoriesService, EntrepriseRepository $entrepriseRepository): Response
+    public function show(CategoriesServices $categoriesService, EntrepriseRepository $entrepriseRepository, ReseauxRepository $reseauxRepository): Response
     {
         return $this->render('categories_services/show.html.twig', [
             'categories_service' => $categoriesService,
             'entreprise' => $entrepriseRepository->find(1),
+            'reseaux' => $reseauxRepository->findAll(),
         ]);
     }
 
     #[Route('/{id}/edit', name: 'categories_services_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, CategoriesServices $categoriesService, EntityManagerInterface $entityManager, EntrepriseRepository $entrepriseRepository): Response
+    public function edit(Request $request, CategoriesServices $categoriesService, EntityManagerInterface $entityManager, EntrepriseRepository $entrepriseRepository, ReseauxRepository $reseauxRepository): Response
     {
         $form = $this->createForm(CategoriesServicesType::class, $categoriesService);
         $form->handleRequest($request);
@@ -70,6 +74,7 @@ class CategoriesServicesController extends AbstractController
             'categories_service' => $categoriesService,
             'form' => $form,
             'entreprise' => $entrepriseRepository->find(1),
+            'reseaux' => $reseauxRepository->findAll(),
         ]);
     }
 

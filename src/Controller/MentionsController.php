@@ -8,12 +8,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class HomeController extends AbstractController
+class MentionsController extends AbstractController
 {
-    #[Route('/', name: 'home')]
+    #[Route('/mentions', name: 'mentions')]
     public function index(EntrepriseRepository $entrepriseRepository, ReseauxRepository $reseauxRepository): Response
     {
-        return $this->render('home/home.html.twig', [
+        return $this->render('mentions/index.html.twig', [
             'entreprise' => $entrepriseRepository->find(1),
             'reseaux' => $reseauxRepository->findAll(),
         ]);

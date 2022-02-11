@@ -23,6 +23,7 @@ class EntrepriseType extends AbstractType
             ->add('telephone')
             ->add('mail')
             ->add('portable')
+            ->add('capital')
             ->add('heure_ouverture')
             ->add('heure_fermeture')
             ->add(
@@ -30,6 +31,36 @@ class EntrepriseType extends AbstractType
                 FileType::class,
                 [
                     'label' => 'Charger une image',
+                    'data_class' => null,
+                    'required' => false,
+                    'empty_data' => ''
+                ]
+            )
+            ->add(
+                'logo',
+                FileType::class,
+                [
+                    'label' => 'Charger un logo',
+                    'data_class' => null,
+                    'required' => false,
+                    'empty_data' => ''
+                ]
+            )
+            ->add(
+                'banniere',
+                FileType::class,
+                [
+                    'label' => 'Charger une banniere',
+                    'data_class' => null,
+                    'required' => false,
+                    'empty_data' => ''
+                ]
+            )
+            ->add(
+                'favicon',
+                FileType::class,
+                [
+                    'label' => 'Charger une favicon',
                     'data_class' => null,
                     'required' => false,
                     'empty_data' => ''
