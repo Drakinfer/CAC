@@ -21,7 +21,6 @@ class ReseauxController extends AbstractController
         return $this->render('reseaux/index.html.twig', [
             'reseaux' => $reseauxRepository->findAll(),
             'entreprise' => $entrepriseRepository->find(1),
-            'reseaux' => $reseauxRepository->findAll(),
         ]);
     }
 

@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Changer le mot de passe
+{% endblock %}
+
+{% block body %}
+	<h2>Changer le mot de passe</h2>
+
+	{{ include('profil/_form.html.twig', {'button_label': 'Sauvegarder'}) }}
+
+	<a href="{{ path('profil') }}" class="button">Retour au profil</a>
+{% endblock %}

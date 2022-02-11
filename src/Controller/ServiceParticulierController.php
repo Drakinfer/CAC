@@ -15,10 +15,10 @@ class ServiceParticulierController extends AbstractController
 {
     #[Route('/service/particulier', name: 'service_particulier')]
 
-    public function index(ServicesRepository $servicesRepository, ReseauxRepository $reseauxRepository, EntrepriseRepository $entrepriseRepository, Services $services): Response
+    public function index(ServicesRepository $servicesRepository, ReseauxRepository $reseauxRepository, EntrepriseRepository $entrepriseRepository): Response
     {
         return $this->render('service_particulier/index.html.twig', [
-            'service' => $servicesRepository->TriParticuliers(),
+            'services' => $servicesRepository->TriParticuliers(),
             'reseaux' => $reseauxRepository->findAll(),
             'entreprise' => $entrepriseRepository->find(1),
         ]);
